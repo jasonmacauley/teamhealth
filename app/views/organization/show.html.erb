@@ -1,19 +1,19 @@
 <div class="container">
-  <div class="row align:left">
-    <div class="cols-sm">
+  <div class="row justify-content-md-left">
+    <div class="cols-md-auto">
       <h1>Organization: <%= @org.name %></h1>
     </div>
-    <div class="cols-sm">
+    <div class="cols-md-auto">
       <%= link_to("Add Child Org", add_organization_path(@org)) %>
     </div>
   </div>
   <div class="row">
-    <div class="col-sm">
+    <div class="cols-md-auto">
       Child Orgs
     </div>
   </div>
   <div class="row">
-    <div class="cols-sm">
+    <div class="cols-md-auto">
     <ul>
       <% @org.organizations.each do |child| %>
         <li>
