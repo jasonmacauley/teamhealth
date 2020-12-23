@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'organization/index'
+  get 'organization/show/:id' => 'organization#show', as: :organization
+  get 'organization/edit/:id' => 'organization#edit', as: :edit_organization
+  get 'orrganization/add/:id' => 'organization#new', as: :add_organization
+  post 'organizations' => 'organization#update'
+  patch 'organizations' => 'organization#update'
+  get 'organization/new'
+  get 'organization/delete'
   get 'organization_type/index'
   get 'organization_type/show/:id' => 'organization_type#show', as: :organization_type
   get 'organization_type/edit/:id' => 'organization_type#edit', as: :edit_organnization_type

@@ -1,0 +1,13 @@
+<h1>Organizations</h1>
+<div>
+  <ul>
+    <% root_type = OrganizationType.find_by_name('root') %>
+    <% @orgs.each do |org| %>
+      <% if org.organization_type == root_type %>
+        <li>
+          <%= link_to(org.name, organization_path(org)) %>  <%= link_to("Edit", edit_organization_path(org)) %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

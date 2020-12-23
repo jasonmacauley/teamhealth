@@ -1,0 +1,22 @@
+<h1>Organization: <%= @org.name %></h1>
+<div>
+  Name: <%= @org.name %>
+</div>
+<div class="row">
+  <div class="row">
+    <div class="header">
+      Child Orgs <%= link_to("Add Child Org", add_organization_path(@org)) %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="cols-md-auto">
+    <ul>
+      <% @org.organizations.each do |child| %>
+        <li>
+          <%= link_to(child.name, organization_path(child)) %>
+        </li>
+      <% end %>
+    </ul>
+    </div>
+  </div>
+</div>

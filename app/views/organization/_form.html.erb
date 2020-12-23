@@ -1,0 +1,21 @@
+<%= form_with url: organizations_path, model: @org do |f| %>
+  <div>
+    <%= f.label :parent_organization %><br>
+    <%= f.select :organization_id, Organization.all.collect { |org| [org.name, org.id] }, include_blank: true %>
+  </div>
+  <div>
+    <%= f.label :name %><br>
+    <%= f.text_field(:name, :value => @org.name) %>
+  </div>
+  <div>
+    <%= f.label :organization_type %><br>
+    <%= f.select :organization_type, OrganizationType.all.collect { |org| [org.name, org.id] }, include_blank: false %>
+  </div>
+
+  <div>
+    <%= f.hidden_field :id, :value => @org.id %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
