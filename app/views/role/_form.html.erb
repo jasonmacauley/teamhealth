@@ -1,0 +1,16 @@
+<%= form_with url: roles_path, model: @role do |f| %>
+  <div>
+    <%= f.label :name %><br>
+    <%= f.text_field(:name, :value => @role.name) %>
+  </div>
+  <div>
+    <%= f.label :description %><br>
+    <%= f.text_area(:description, :value => @role.description) %>
+  </div>
+  <div>
+    <%= f.hidden_field :id, :value => @role.id %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

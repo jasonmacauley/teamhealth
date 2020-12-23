@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   get 'role/index'
-  get 'role/show'
-  get 'role/edit'
-  get 'role/update'
-  get 'role/delete'
-  get 'role/create'
+  get 'role/show/:id' => 'role#show', as: :role
+  get 'role/edit/:id' => 'role#edit', as: :edit_role
+  get 'role/delete/:id' => 'role#delete', as: :delete_role
+  post 'roles' => 'role#update'
+  patch 'roles' => 'role#update'
   get 'role/new'
   get 'team_member/index'
   get 'team_member/show'

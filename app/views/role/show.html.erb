@@ -1,2 +1,4 @@
-<h1>Role#show</h1>
-<p>Find me in app/views/role/show.html.erb</p>
+<h1>Role: <%= @role.name.to_s.capitalize %></h1>
+Name: <%= @role.name.to_s.capitalize %><br>
+Description: <%= @role.description %><br>
+<%= link_to("All Roles", role_index_path) %>
