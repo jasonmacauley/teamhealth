@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="cols-md-auto">
+      <h1>Title#index</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="cols-md-auto">
+      <ul>
+        <% @titles.each do |title| %>
+        <li>
+          <%= title.name %> <%= link_to("Edit", edit_title_path(title)) %>  <%= link_to("Delete", delete_title_path(title)) %>
+        </li>
+
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="cols-md-auto">
+      <%= link_to("Add Tile", title_new_path) %>
+    </div>
+  </div>
+
+</div>

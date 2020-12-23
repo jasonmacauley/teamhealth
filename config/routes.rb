@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
+  get 'title/index'
+  get 'title/show/:id' => 'title#show', as: :title
+  get 'title/edit/:id' => 'title#edit', as: :edit_title
+  get 'title/new'
+  post 'titles' => 'title#update'
+  patch 'titles' => 'title#update'
+  get 'title/delete/:id' => 'title#delete', as: :delete_title
   get 'organization/index'
   get 'organization/show/:id' => 'organization#show', as: :organization
   get 'organization/edit/:id' => 'organization#edit', as: :edit_organization
-  get 'orrganization/add/:id' => 'organization#new', as: :add_organization
+  get 'organization/add/:id' => 'organization#new', as: :add_organization
   post 'organizations' => 'organization#update'
   patch 'organizations' => 'organization#update'
   get 'organization/new'

@@ -28,7 +28,6 @@ class RoleController < ApplicationController
     redirect_to(role_index_path)
   end
 
-  # </editor-fold>
   def new
     @role = Role.new
   end

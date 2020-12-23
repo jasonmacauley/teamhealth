@@ -1,0 +1,12 @@
+<%= form_with url: titles_path, model: @title do |f| %>
+  <div>
+    <%= f.label :name %><br>
+    <%= f.text_field(:name, :value => title.name) %>
+  </div>
+  <div>
+    <%= f.hidden_field :id, :value => title.id %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
