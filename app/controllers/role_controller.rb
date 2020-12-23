@@ -14,7 +14,7 @@ class RoleController < ApplicationController
 
   def update
     @role = Role.new
-    unless params[:commit].match(/Create\sRole/)
+    unless params[:commit].match(/Create/)
       @role = Role.find(params[:role][:id])
     end
     @role.name = params[:role][:name]

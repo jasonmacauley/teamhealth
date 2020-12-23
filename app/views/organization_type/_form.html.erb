@@ -1,0 +1,16 @@
+<%= form_with url: organization_types_path, model: @org_type do |f| %>
+  <div>
+    <%= f.label :name %><br>
+    <%= f.text_field(:name, :value => @org_type.name) %>
+  </div>
+  <div>
+    <%= f.label :description %><br>
+    <%= f.text_area(:description, :value => @org_type.description) %>
+  </div>
+  <div>
+    <%= f.hidden_field :id, :value => @org_type.id %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

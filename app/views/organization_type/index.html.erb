@@ -1,0 +1,11 @@
+<h1>Organization Types</h1>
+<div>
+  <ul>
+    <% @org_types.each do |type| %>
+      <li>
+        <%= link_to(type.name, organization_type_path(type)) %>   <%= link_to("Edit", edit_organnization_type_path(type)) %>   <%= link_to("Delete", delete_organization_type_path(type)) %>
+      </li>
+    <% end %>
+  </ul>
+  <%= link_to("Add Org Type", organization_type_new_path) %>
+</div>

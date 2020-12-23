@@ -1,0 +1,4 @@
+<h1>Org Type: <%= @org_type.name.to_s.capitalize %></h1>
+Name: <%= @org_type.name.to_s.capitalize %><br>
+Description: <%= @org_type.description %><br>
+<%= link_to("All Org Types", organization_type_index_path) %>
