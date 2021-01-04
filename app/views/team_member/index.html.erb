@@ -5,12 +5,23 @@
   <div class="col-md-auto">
     <ul>
       <% @members.each do |member| %>
-        <% full_name = member.first_name + ' ' + member.last_name %>
+        <% full_name = 'Not Set' %>
+        <% full_name = member.first_name + ' ' + member.last_name unless member.first_name.nil? || member.last_name.nil? %>
         <li>
           <%= link_to(full_name, show_team_member_path(member)) %> - <%= member.title.name %> <%= mail_to(member.user.email, name = 'Email') %>
         </li>
       <% end %>
     </ul>
     <%= link_to("Add Team Member", team_member_new_path) %>
+  </div>
+</div>
+<div class="row">
+  <div class="cols-md-auto">
+    <%= form_tag import_team_members_path, multipart: true do %>
+      <div>
+        <%= file_field_tag :file %>
+        <%= submit_tag "Import CSV" %>
+      </div>
+    <% end %>
   </div>
 </div>

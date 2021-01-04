@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   patch 'team_members' => 'team_member#update'
   get 'team_member/delete/:id' => 'team_member#delete', as: :delete_team_member
   get 'team_member/new'
+  post 'team_member/import' => 'team_member#import', as: :import_team_members
   devise_for :users
   root "home#index"
   get 'home/index'

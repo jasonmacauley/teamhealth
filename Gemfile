@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'bootstrap'
 gem 'jquery-rails'
+gem 'csv'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

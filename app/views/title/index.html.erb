@@ -7,7 +7,7 @@
   <div class="row">
     <div class="cols-md-auto">
       <ul>
-        <% @titles.each do |title| %>
+        <% @titles.sort_by { | t| t.name  }.each do |title| %>
         <li>
           <%= title.name %> <%= link_to("Edit", edit_title_path(title)) %>  <%= link_to("Delete", delete_title_path(title)) %>
         </li>
