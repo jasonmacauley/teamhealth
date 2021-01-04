@@ -1,0 +1,24 @@
+<%= form_with url: team_members_path, model: @member do |f| %>
+  <div>
+    <%= f.label :first_name %><br>
+    <%= f.text_field(:first_name, :value => @member.first_name) %>
+  </div>
+  <div>
+    <%= f.label :last_name %><br>
+    <%= f.text_field(:last_name, :value => @member.last_name) %>
+  </div>
+  <div>
+    <%= f.label :email %><br>
+    <%= f.text_field(:email, :value => @member.user.nil? ? '' : @member.user.email) %>
+  </div>
+  <div>
+    <%= f.label :title %><br>
+    <%= f.select(:title_id, Title.all.collect { |t| [t.name, t.id] }) %>
+  </div>
+  <div>
+    <%= f.hidden_field :id, :value => @member.id %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

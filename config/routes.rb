@@ -29,11 +29,11 @@ Rails.application.routes.draw do
   patch 'roles' => 'role#update'
   get 'role/new'
   get 'team_member/index'
-  get 'team_member/show'
-  get 'team_member/edit'
-  get 'team_member/update'
-  get 'team_member/delete'
-  get 'team_member/create'
+  get 'team_member/show/:id' => 'team_member#show', as: :show_team_member
+  get 'team_member/edit/:id' => 'team_member#edit', as: :edit_team_member
+  post 'team_members' => 'team_member#update'
+  patch 'team_members' => 'team_member#update'
+  get 'team_member/delete/:id' => 'team_member#delete', as: :delete_team_member
   get 'team_member/new'
   devise_for :users
   root "home#index"

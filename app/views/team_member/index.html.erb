@@ -1,2 +1,16 @@
-<h1>TeamMember#index</h1>
-<p>Find me in app/views/team_member/index.html.erb</p>
+<div class="header">
+  <h1>TeamMembers</h1>
+</div>
+<div class="row">
+  <div class="col-md-auto">
+    <ul>
+      <% @members.each do |member| %>
+        <% full_name = member.first_name + ' ' + member.last_name %>
+        <li>
+          <%= link_to(full_name, show_team_member_path(member)) %> - <%= member.title.name %> <%= mail_to(member.user.email, name = 'Email') %>
+        </li>
+      <% end %>
+    </ul>
+    <%= link_to("Add Team Member", team_member_new_path) %>
+  </div>
+</div>
