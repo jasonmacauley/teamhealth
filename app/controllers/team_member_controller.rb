@@ -22,7 +22,7 @@ class TeamMemberController < ApplicationController
         'last_name' => params[:team_member][:last_name],
         'email' => params[:team_member][:email],
         'id' => @member.id,
-        'title' => Ttitle.find(params[:team_member][:title_id])
+        'title' => Title.find(params[:team_member][:title_id])
     }
     update_member(member_params)
     redirect_to(show_team_member_path(@member))
@@ -40,13 +40,13 @@ class TeamMemberController < ApplicationController
     CSV.foreach(file.path, headers: true) do |row|
       member_hash = {}
       name = row[0].split(' ')
-      puts 'Name: ' + name[0]
       member_hash['first_name'] = name[0]
       member_hash['last_name'] = name[1]
       member_hash['email'] = row[1]
       title = get_or_create_title(row[2])
       member_hash['title'] = title
       update_member(member_hash)
+      import_org_structure(row[4], row[3], row[6])
     end
     redirect_to(team_member_index_path)
   end
@@ -80,5 +80,40 @@ class TeamMemberController < ApplicationController
     return nil if user.nil?
 
     TeamMember.find_by_user_id(user.id)
+  end
+
+  def import_org_structure(team, slice, company)
+    company = check_name(company)
+    slice = check_name(slice)
+    team = check_name(team)
+    co = find_or_create_org(company, 'root')
+    sl = update_org_association(slice, 'slice', co)
+    update_org_association(team, 'team', sl)
+  end
+
+  def check_name(org_name)
+    org_name = 'none' unless org_name =~ /\w+/
+    org_name
+  end
+
+  def update_org_association(name, type, parent_org)
+    org = find_or_create_org(name, type)
+    org.organization = parent_org
+    org.save
+    org
+  end
+
+  def find_or_create_org(name, type)
+    org_type = OrganizationType.find_by_name(type)
+    org = find_org(name)
+    org = Organization.new if org.nil?
+    org.name = name
+    org.organization_type = org_type
+    org.save
+    org
+  end
+
+  def find_org(name)
+    Organization.find_by_name(name)
   end
 end
