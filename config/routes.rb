@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'location/index'
+  get 'location/edit/:id' => 'location#edit', as: :edit_location
+  post 'locations' => 'location#update'
+  patch 'locations' => 'location#update'
+  get 'location/new'
+  get 'location/delete/:id' => 'location#delete', as: :delete_location
   get 'title/index'
   get 'title/show/:id' => 'title#show', as: :title
   get 'title/edit/:id' => 'title#edit', as: :edit_title

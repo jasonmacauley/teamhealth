@@ -1,0 +1,19 @@
+<div class="row">
+  <h1>Locations</h1>
+</div>
+<div class="row">
+  <div class="cols-md-auto">
+    <ul>
+      <% @locations.each do |location| %>
+        <li>
+          <%= location.name %> <%= link_to("Edit", edit_location_path(location)) %> <%= link_to("Delete", delete_location_path(location)) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<div class="row">
+  <div class="cols-md-auto">
+    <%= link_to("Add Location", location_new_path) %>
+  </div>
+</div>

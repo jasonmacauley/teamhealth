@@ -1,0 +1,12 @@
+<%= form_with url: locations_path, model: @location do |f| %>
+  <div>
+    <%= f.label :name %><br>
+    <%= f.text_field(:name, :value => @location.name) %>
+  </div>
+  <div>
+    <%= f.hidden_field :id, :value => @location.id %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
