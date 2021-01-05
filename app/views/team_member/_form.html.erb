@@ -16,6 +16,10 @@
     <%= f.select(:title_id, Title.all.collect { |t| [t.name, t.id] }) %>
   </div>
   <div>
+    <%= f.label :location %><br>
+    <%= f.select(:location_id, Location.all.collect { |l| [l.name, l.id] }) %>
+  </div>
+  <div>
     <%= f.hidden_field :id, :value => @member.id %>
   </div>
   <div>

@@ -22,7 +22,8 @@ class TeamMemberController < ApplicationController
         'last_name' => params[:team_member][:last_name],
         'email' => params[:team_member][:email],
         'id' => @member.id,
-        'title' => Title.find(params[:team_member][:title_id])
+        'title' => Title.find(params[:team_member][:title_id]),
+        'location' => Location.find(params[:team_member][:location_id])
     }
     update_member(member_params)
     redirect_to(show_team_member_path(@member))
@@ -45,6 +46,7 @@ class TeamMemberController < ApplicationController
       member_hash['email'] = row[1]
       title = get_or_create_title(row[2])
       member_hash['title'] = title
+      member_hash['location'] = get_or_create_location(row[5])
       update_member(member_hash)
       import_org_structure(row[4], row[3], row[6])
     end
@@ -58,6 +60,12 @@ class TeamMemberController < ApplicationController
 
   private
 
+  def get_or_create_location(name)
+    location = Location.find_by_name(name)
+    location = Location.create(name: name) if location.nil?
+    location
+  end
+
   def get_or_create_title(title_name)
     Title.find_by_name(title_name).nil? ? title = Title.create(name: title_name) : title = Title.find_by_name(title_name)
     title
@@ -69,6 +77,7 @@ class TeamMemberController < ApplicationController
     @member.first_name = member_params['first_name']
     @member.last_name = member_params['last_name']
     @member.title = member_params['title']
+    @member.location = member_params['location']
     email = member_params['email']
     User.new(email: email, password: SecureRandom.hex).save if @member.user.nil?
     @member.user = User.find_by_email(email)

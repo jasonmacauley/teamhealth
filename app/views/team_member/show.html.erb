@@ -5,6 +5,7 @@
   <div class="cols-md-auto">
     Name: <%= @member.first_name + ' ' + @member.last_name %><br>
     Title: <%= @member.title.name %><br>
+    Location: <%= @member.location.nil? ? "" : @member.location.name %><br>
     Email: <%= mail_to(@member.user.email) %><br>
     <%= link_to("Edit", edit_team_member_path(@member)) %> | <%= link_to("Delete", delete_team_member_path(@member)) %> | <%= link_to("All Members", team_member_index_path) %>
   </div>
