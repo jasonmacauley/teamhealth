@@ -25,6 +25,7 @@ gem 'devise'
 gem 'bootstrap'
 gem 'jquery-rails'
 gem 'csv'
+gem "nokogiri", ">= 1.11.0.rc4"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
