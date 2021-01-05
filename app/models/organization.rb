@@ -4,4 +4,5 @@ class Organization < ApplicationRecord
   has_many :organizations
   has_and_belongs_to_many :team_members
   has_many :organization_roles
+  has_many :metrics
 end

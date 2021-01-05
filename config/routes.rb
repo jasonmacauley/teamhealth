@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'metric_type/index'
+  get 'metric_type/show/:id' => 'metric_type#show', as: :show_metric_type
+  get 'metric_type/edit/:id' => 'metric_type#edit', as: :edit_metric_type
+  get 'metric_type/new'
+  post 'metric_types' => 'metric_type#update'
+  patch 'metric_types' => 'metric_type#update'
+  get 'metric_type/delete/:id' => 'metric_type#delete', as: :delete_metric_type
   get 'organization_roles/index'
   get 'organization_roles/update'
   get 'organization_roles/show'

@@ -1,0 +1,16 @@
+<%= form_with url: metric_types_path, model: @metric_type do |f| %>
+  <div>
+    <%= f.label :name %><br>
+    <%= f.text_field(:name, :value => @metric_type.name) %>
+  </div>
+  <div>
+    <%= f.label :description %><br>
+    <%= f.text_area(:description, :value => @metric_type.description) %>
+  </div>
+  <div>
+    <%= f.hidden_field :id, :value => @metric_type.id %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
