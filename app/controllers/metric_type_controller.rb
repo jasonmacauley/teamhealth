@@ -22,6 +22,7 @@ class MetricTypeController < ApplicationController
     end
     @metric_type.name = params[:metric_type][:name]
     @metric_type.description = params[:metric_type][:description]
+    @metric_type.label = params[:metric_type][:label]
     @metric_type.save
     redirect_to(metric_type_index_path)
   end

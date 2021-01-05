@@ -8,8 +8,8 @@
     <ul>
       <% @metric_types.each do |type| %>
       <li>
-        <b><%= type.name %></b> - <%= type.description %><br>
-        <%= link_to("Delete", delete_metric_type_path(type)) %>
+        <b><%= type.name %></b> (<%= type.label %>) - <%= type.description %><br>
+        <%= link_to("Edit", edit_metric_type_path(type)) %> | <%= link_to("Delete", delete_metric_type_path(type)) %>
       </li>
       <% end %>
     </ul>
