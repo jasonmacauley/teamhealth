@@ -1,0 +1,16 @@
+<%= form_with url: add_team_member_role_path, model: @member do |f| %>
+  <div>
+    <%= f.label :organization %><br>
+    <%= f.select(:organization_id, Organization.all.collect { |o| [o.name, o.id] }) %>
+  </div>
+  <div>
+    <%= f.label :role %><br>
+    <%= f.select(:role_id, Role.all.collect { |r| [r.name, r.id] }) %>
+  </div>
+  <div>
+    <%= f.hidden_field :id, :value => @member.id %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

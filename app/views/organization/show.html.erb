@@ -11,6 +11,9 @@
     <div class="cols-md-auto">
       Child Orgs
     </div>
+    <div class="cols-md-autp">
+      Team Members
+    </div>
   </div>
   <div class="row">
     <div class="cols-md-auto">
@@ -21,6 +24,15 @@
         </li>
       <% end %>
     </ul>
+    </div>
+    <div class="cols-d-auto">
+      <% @org.organization_roles.each do |role| %>
+        <ul>
+            <li>
+              <%= role.team_member.first_name %> <%= role.team_member.last_name %> <%= role.team_member.title.name %> - <%= role.role.name %>
+            </li>
+        </ul>
+      <% end %>
     </div>
   </div>
 </div>

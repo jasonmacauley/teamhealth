@@ -47,8 +47,11 @@ class TeamMemberController < ApplicationController
       title = get_or_create_title(row[2])
       member_hash['title'] = title
       member_hash['location'] = get_or_create_location(row[5])
-      update_member(member_hash)
+      member = update_member(member_hash)
       import_org_structure(row[4], row[3], row[6])
+      role = Role.find_by(name: 'member')
+      org = find_org(row[4])
+      add_organization_role(org.id, role.id, member.id) unless org.nil?
     end
     redirect_to(team_member_index_path)
   end
@@ -58,7 +61,32 @@ class TeamMemberController < ApplicationController
     @titles = Title.all
   end
 
+  def add_role
+    @member = TeamMember.find(params[:team_member][:id])
+    add_organization_role(params[:team_member][:organization_id], params[:team_member][:role_id], @member.id)
+    redirect_to(show_team_member_path(@member))
+  end
+
+  def remove_role
+    role = OrganizationRole.find(params[:id])
+    member = role.team_member
+    role.delete
+    redirect_to(show_team_member_path(member))
+  end
+
   private
+
+  def add_organization_role(org_id, role_id, member_id)
+    member = TeamMember.find(member_id)
+    member.organization_roles.each do |role|
+      return if role.organization_id == org_id && role.role_id == role_id
+    end
+    role = OrganizationRole.new
+    role.organization_id = org_id
+    role.role_id = role_id
+    role.team_member_id = member_id
+    role.save
+  end
 
   def get_or_create_location(name)
     location = Location.find_by_name(name)
@@ -82,6 +110,7 @@ class TeamMemberController < ApplicationController
     User.new(email: email, password: SecureRandom.hex).save if @member.user.nil?
     @member.user = User.find_by_email(email)
     @member.save
+    @member
   end
 
   def find_member_by_email(email)

@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'organization_roles/index'
+  get 'organization_roles/update'
+  get 'organization_roles/show'
+  get 'organization_roles/delete'
+  get 'organization_roles/new'
   get 'location/index'
   get 'location/edit/:id' => 'location#edit', as: :edit_location
   post 'locations' => 'location#update'
@@ -42,6 +47,8 @@ Rails.application.routes.draw do
   get 'team_member/delete/:id' => 'team_member#delete', as: :delete_team_member
   get 'team_member/new'
   post 'team_member/import' => 'team_member#import', as: :import_team_members
+  patch 'team_member/add_role/:id' => 'team_member#add_role', as: :add_team_member_role
+  get 'team_member/remove_role/:id' => 'team_member#remove_role', as: :remove_team_member_role
   devise_for :users
   root "home#index"
   get 'home/index'

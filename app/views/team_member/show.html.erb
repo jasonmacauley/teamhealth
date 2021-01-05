@@ -9,4 +9,22 @@
     Email: <%= mail_to(@member.user.email) %><br>
     <%= link_to("Edit", edit_team_member_path(@member)) %> | <%= link_to("Delete", delete_team_member_path(@member)) %> | <%= link_to("All Members", team_member_index_path) %>
   </div>
+  <div class="cols-md-auto">
+    <div class="row">
+      <div class="cols-md-auto">
+        <ul>
+          <% @member.organization_roles.each do |role| %>
+            <li>
+              <%= role.organization.name %> - <%= role.role.name %> <%= link_to("Remove Role", remove_team_member_role_path(role)) %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="cols-md-auto">
+        <%= render 'add_role', member: @member %>
+      </div>
+    </div>
+  </div>
 </div>
