@@ -1,0 +1,12 @@
+<%= form_with url: question_types_path, model: @question_type do |f| %>
+  <div>
+    <%= f.label :name %><br>
+    <%= f.text_field(:name, :value => @question_type.name) %>
+  </div>
+  <div>
+    <%= f.hidden_field :id, :value => @question_type.id %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

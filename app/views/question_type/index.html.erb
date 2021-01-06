@@ -1,0 +1,9 @@
+<h1>QuestionType#index</h1>
+<ul>
+  <% @question_types.each do |type| %>
+    <li>
+      <%= type.name %> <%= link_to("Edit", edit_question_type_path(type)) %> | <%= link_to("Delete", delete_question_type_path(type)) %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to("Add Question Type", question_type_new_path) %>

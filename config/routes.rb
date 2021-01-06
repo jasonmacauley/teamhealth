@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  get 'question_type/index'
+  get 'question_type/show/:id' => 'question_type#show', as: :show_question_type
+  post 'question_types' => 'question_type#update'
+  patch 'question_types' => 'question_type#update'
+  get 'question_type/new'
+  get 'question_type/edit/:id' => 'question_type#edit', as: :edit_question_type
+  get 'question_type/delete/:id' => 'question_type#delete', as: :delete_question_type
+  get 'questionnaire/index'
+  get 'questionnaire/show/:id' => 'questionnaire#show', as: :show_questionnaire
+  post 'questionnaires' => 'questionnaire#update'
+  patch 'questionnaires' => 'questionnaire#update'
+  get 'questionnaire/new'
+  get 'questionnaire/edit/:id' => 'questionnaire#edit', as: :edit_questionnaire
+  get 'questionnaire/delete/:id' => 'questionnaire#delete', as: :delete_questionnaire
   get 'metrics/add/:id' => 'metrics#add', as: :add_metrics
   post 'metrics/update'
   get 'metrics/delete'
