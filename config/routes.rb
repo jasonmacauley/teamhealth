@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'metrics/add/:id' => 'metrics#add', as: :add_metrics
   post 'metrics/update'
   get 'metrics/delete'
+  post 'metrics/import' => 'metrics#import', as: :import_metrics
   get 'metric_type/index'
   get 'metric_type/show/:id' => 'metric_type#show', as: :show_metric_type
   get 'metric_type/edit/:id' => 'metric_type#edit', as: :edit_metric_type

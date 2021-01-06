@@ -52,11 +52,20 @@
         <li>
           (<%= metric.period_start %>) <%= metric.metric_type.name %>: <%= metric.value %>
         </li>
-
         <% end %>
       </ul>
-
     </div>
-    <%=  %>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="cols">
+      <%= form_tag import_metrics_path, multipart: true do %>
+        <div>
+          <%= file_field_tag :file %>
+          <%= submit_tag "Import CSV" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
