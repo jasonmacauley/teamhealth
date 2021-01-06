@@ -36,3 +36,27 @@
     </div>
   </div>
 </div>
+<div class="container">
+  <div class="row">
+    <div class="cols">
+      <h3>Metrics</h3>
+    </div>
+    <div class="cols">
+      <%= link_to('Add Metrics', add_metrics_path(@org)) %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="cols">
+      <ul>
+        <% @org.metrics.each do |metric| %>
+        <li>
+          (<%= metric.period_start %>) <%= metric.metric_type.name %>: <%= metric.value %>
+        </li>
+
+        <% end %>
+      </ul>
+
+    </div>
+    <%=  %>
+  </div>
+</div>
