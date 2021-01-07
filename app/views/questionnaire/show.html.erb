@@ -1,2 +1,42 @@
-<h1>Questionnaire#show</h1>
-<p>Find me in app/views/questionnaire/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="cols">
+      <h1>Questionnaire#show</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="cols">
+      <h3><%= @questionnaire.name %></h3>
+      <%= link_to("Edit", edit_questionnaire_path(@questionnaire)) %> | <%= link_to("Delete", delete_questionnaire_path(@questionnaire)) %>
+      <p>
+        <%= @questionnaire.description %>
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="cols">
+      <h3>Questions</h3>
+      <%= link_to("Add Question", add_question_path(@questionnaire)) %>
+      <ul>
+        <% @questionnaire.questions.each do |question| %>
+          <li>
+            <%= question.text %> <%= link_to("Edit", edit_question_path(question)) %> | <%= link_to("Delete", delete_question_path(question)) %> <br>
+            Type: <%= question.question_type.name %><br>
+            <h4>Options</h4>
+            <%= link_to("Add Option", add_question_option_path(question)) %>
+            <ul>
+              <% question.question_options.each do |option| %>
+                <li>
+                  Text: <%= option.text %> <%= link_to("Edit", edit_question_option_path(option)) %> | <%= link_to("Delete", delete_question_option_path(option)) %><br>
+                  Value: <%= option.value %>
+                </li>
+              <% end %>
+            </ul>
+
+
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

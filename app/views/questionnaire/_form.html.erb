@@ -1,0 +1,16 @@
+<%= form_with url: questionnaires_path, model: @questionnaire do |f| %>
+  <div>
+    <%= f.label :name %><br>
+    <%= f.text_field(:name, :value => @questionnaire.name) %>
+  </div>
+  <div>
+    <%= f.label :description %><br>
+    <%= f.text_area(:description, :value => @questionnaire.description) %>
+  </div>
+  <div>
+    <%= f.hidden_field :id, :value => @questionnaire.id %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

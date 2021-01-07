@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'question_option/new/:id' => 'question_option#new', as: :add_question_option
+  get 'question_option/edit/:id' => 'question_option#edit', as: :edit_question_option
+  post 'question_options' => 'question_option#update'
+  patch 'question_options' => 'question_option#update'
+  get 'question_option/delete/:id' => 'question_option#delete', as: :delete_question_option
+  get 'question/new/:id' => 'question#new', as: :add_question
+  get 'question/edit/:id' => 'question#edit', as: :edit_question
+  get 'question/delete/:id' => 'question#delete', as: :delete_question
+  post 'questions' => 'question#update'
+  patch 'questions' => 'question#update'
   get 'question_type/index'
   get 'question_type/show/:id' => 'question_type#show', as: :show_question_type
   post 'question_types' => 'question_type#update'

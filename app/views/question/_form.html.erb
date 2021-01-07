@@ -1,0 +1,17 @@
+<%= form_with url: questions_path, model: @question do |f| %>
+  <div>
+    <%= f.label :text %><br>
+    <%= f.text_field(:text, :value => @question.text) %>
+  </div>
+  <div>
+    <%= f.label :question_type %><br>
+    <%= f.select :question_type, QuestionType.all.collect { |q| [q.name, q.id] }, include_blank: false %>
+  </div>
+  <div>
+    <%= f.hidden_field :questionnaire_id, :value => @questionnaire.id %>
+    <%= f.hidden_field :id, :value => @question.id %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
