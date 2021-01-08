@@ -23,6 +23,9 @@ Rails.application.routes.draw do
   get 'questionnaire/new'
   get 'questionnaire/edit/:id' => 'questionnaire#edit', as: :edit_questionnaire
   get 'questionnaire/delete/:id' => 'questionnaire#delete', as: :delete_questionnaire
+  get 'questionnaire/display/:id' => 'questionnaire#display', as: :display_questionnaire
+  patch 'questionnaire/collect/:id' => 'questionnaire#collect', as: :collect_response
+  get 'questionnaire/thanks/:id' => 'questionnaire#thanks', as: :response_thanks
   get 'metrics/add/:id' => 'metrics#add', as: :add_metrics
   post 'metrics/update'
   get 'metrics/delete'

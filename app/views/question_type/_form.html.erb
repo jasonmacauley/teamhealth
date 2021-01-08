@@ -4,6 +4,10 @@
     <%= f.text_field(:name, :value => @question_type.name) %>
   </div>
   <div>
+    <%= f.label :partial_name %><br>
+    <%= f.text_field(:partial_name, :value => @question_type.partial_name) %>
+  </div>
+  <div>
     <%= f.hidden_field :id, :value => @question_type.id %>
   </div>
   <div>

@@ -9,7 +9,7 @@
   </div>
   <div>
     <%= f.label :organization_type %><br>
-    <%= f.select :organization_type, OrganizationType.all.collect { |org| [org.name, org.id] }, include_blank: false %>
+    <%= f.select :organization_type_id, OrganizationType.all.collect { |t| [t.name, t.id] }, include_blank: false %>
   </div>
 
   <div>

@@ -13,6 +13,7 @@ class QuestionTypeController < ApplicationController
       @question_type = QuestionType.find(params[:question_type][:id])
     end
     @question_type.name = params[:question_type][:name]
+    @question_type.partial_name = params[:question_type][:partial_name]
     @question_type.save
     redirect_to(question_type_index_path)
   end

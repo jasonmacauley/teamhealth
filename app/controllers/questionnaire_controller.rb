@@ -31,4 +31,24 @@ class QuestionnaireController < ApplicationController
     @questionnaire.delete
     redirect_to(questionnaire_index_path)
   end
+
+  def display
+    @questionnaire = Questionnaire.find(params[:id])
+  end
+
+  def collect
+    @questionnaire = Questionnaire.find(params[:id])
+    @questionnaire.questions.each do |q|
+      puts 'VALUE: ' + params[:questionnaire][q.label.to_sym]
+      response = Response.create(team_member_id: current_user.id,
+                                 question_id: q.id,
+                                 value: params[:questionnaire][q.label.to_sym])
+      response.save
+    end
+    redirect_to(response_thanks_url(@questionnaire))
+  end
+
+  def thanks
+    @questionnaire = Questionnaire.find(params[:id])
+  end
 end

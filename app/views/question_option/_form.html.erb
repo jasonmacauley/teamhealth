@@ -1,11 +1,15 @@
 <%= form_with url: question_options_path, model: @question_option do |f| %>
   <div>
     <%= f.label :text %><br>
-    <%= f.text_field(:text, :value => @question_option.text) %>
+    <%= f.text_area(:text, :value => @question_option.text) %>
   </div>
   <div>
     <%= f.label :value %><br>
     <%= f.text_field(:value, :value => @question_option.value) %>
+  </div>
+  <div>
+    <%= f.label :label %><br>
+    <%= f.text_field(:label, :label => @question_option.label) %>
   </div>
   <div>
     <%= f.hidden_field :questionnaire_id, :value => @questionnaire.id %>

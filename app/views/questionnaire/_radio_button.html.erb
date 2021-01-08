@@ -1,0 +1,4 @@
+<b><%= question.text %></b><br>
+<% question.question_options.each do |option| %>
+  <%= f.radio_button option.question.label.to_sym, option.value %> <%= option.text %> <br>
+<% end %>

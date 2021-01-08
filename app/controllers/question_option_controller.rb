@@ -26,6 +26,7 @@ class QuestionOptionController < ApplicationController
     @question_option.text = params[:question_option][:text]
     @question_option.question_id = params[:question_option][:question_id]
     @question_option.value = params[:question_option][:value]
+    @question_option.label = params[:question_option][:label]
     @question_option.save
     redirect_to(show_questionnaire_path(@question_option.question.questionnaire))
   end

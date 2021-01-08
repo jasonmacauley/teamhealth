@@ -7,7 +7,7 @@
   <div class="row">
     <div class="cols">
       <h3><%= @questionnaire.name %></h3>
-      <%= link_to("Edit", edit_questionnaire_path(@questionnaire)) %> | <%= link_to("Delete", delete_questionnaire_path(@questionnaire)) %>
+      <%= link_to("Display", display_questionnaire_path(@questionnaire)) %> | <%= link_to("Edit", edit_questionnaire_path(@questionnaire)) %> | <%= link_to("Delete", delete_questionnaire_path(@questionnaire)) %>
       <p>
         <%= @questionnaire.description %>
       </p>
@@ -20,7 +20,7 @@
       <ul>
         <% @questionnaire.questions.each do |question| %>
           <li>
-            <%= question.text %> <%= link_to("Edit", edit_question_path(question)) %> | <%= link_to("Delete", delete_question_path(question)) %> <br>
+            <b><%= question.text %></b> <%= link_to("Edit", edit_question_path(question)) %> | <%= link_to("Delete", delete_question_path(question)) %> <br>
             Type: <%= question.question_type.name %><br>
             <h4>Options</h4>
             <%= link_to("Add Option", add_question_option_path(question)) %>

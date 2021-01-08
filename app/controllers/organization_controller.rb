@@ -17,8 +17,8 @@ class OrganizationController < ApplicationController
       @org = Organization.find(params[:organization][:id])
     end
     @org.name = params[:organization][:name]
-    @org.organization_type = OrganizationType.find(params[:organization][:organization_type])
-    Organization.find(params[:organization][:organization_id]).organizations.push(@org)
+    @org.organization_type_id = params[:organization][:organization_type_id]
+    @org.organization_id = params[:organization][:organization_id]
     @org.save
     redirect_to(organization_path(@org))
   end

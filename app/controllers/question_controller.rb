@@ -23,7 +23,8 @@ class QuestionController < ApplicationController
     end
     @question.text = params[:question][:text]
     @question.questionnaire_id = params[:question][:questionnaire_id]
-    @question.question_type_id = params[:question][:question_type]
+    @question.question_type_id = params[:question][:question_type_id]
+    @question.label = params[:question][:label]
     @question.save
     redirect_to(show_questionnaire_path(@question.questionnaire))
   end
