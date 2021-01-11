@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  patch 'import_qualitative/import'
+  get 'import_qualitative/index/:id' => 'import_qualitative#index', as: :import_quailitative
   get 'question_option/new/:id' => 'question_option#new', as: :add_question_option
   get 'question_option/edit/:id' => 'question_option#edit', as: :edit_question_option
   post 'question_options' => 'question_option#update'
@@ -20,6 +22,8 @@ Rails.application.routes.draw do
   get 'questionnaire/show/:id' => 'questionnaire#show', as: :show_questionnaire
   post 'questionnaires' => 'questionnaire#update'
   patch 'questionnaires' => 'questionnaire#update'
+  get 'questionnaire/clone_questionnaire/:id' => 'questionnaire#clone_questionnaire', as: :clone_questionnaire
+  get 'questionnaire/clone_question/:id' => 'questionnaire#clone_question', as: :clone_question
   get 'questionnaire/new'
   get 'questionnaire/edit/:id' => 'questionnaire#edit', as: :edit_questionnaire
   get 'questionnaire/delete/:id' => 'questionnaire#delete', as: :delete_questionnaire

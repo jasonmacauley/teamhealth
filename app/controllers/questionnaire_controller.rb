@@ -39,7 +39,7 @@ class QuestionnaireController < ApplicationController
   def collect
     @questionnaire = Questionnaire.find(params[:id])
     @questionnaire.questions.each do |q|
-      puts 'VALUE: ' + params[:questionnaire][q.label.to_sym]
+      puts 'VALUE: ' + params[:questionnaire][q.label.to_sym].to_s
       response = Response.create(team_member_id: current_user.id,
                                  question_id: q.id,
                                  value: params[:questionnaire][q.label.to_sym])
@@ -50,5 +50,42 @@ class QuestionnaireController < ApplicationController
 
   def thanks
     @questionnaire = Questionnaire.find(params[:id])
+  end
+
+  def clone_question
+    @question = Question.find(params[:id])
+    @question_clone = clone_q(@question, @question.questionnaire_id)
+    redirect_to(edit_question_path(@question_clone))
+  end
+
+  def clone_questionnaire
+    @questionnaire = Questionnaire.find(params[:id])
+    @questionnaire_clone = Questionnaire.create(name: @questionnaire.name,
+                                                description: @questionnaire.description)
+    @questionnaire.questions.each do |question|
+      clone_q(question, @questionnaire_clone.id)
+    end
+    redirect_to(edit_questionnaire_path(@questionnaire_clone))
+  end
+
+  private
+
+  def clone_q(question, questionnaire_id)
+    question_clone = Question.create(text: question.text,
+                                     question_type_id: question.question_type_id,
+                                     questionnaire_id: questionnaire_id,
+                                     label: question.label)
+    clone_options(question, question_clone)
+    question_clone
+  end
+
+  def clone_options(question, question_clone)
+    question.question_options.each do |option|
+      QuestionOption.create(text: option.text,
+                            question_id: question_clone.id,
+                            value: option.value,
+                            label: option.label)
+    end
+
   end
 end

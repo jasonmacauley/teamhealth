@@ -9,10 +9,10 @@
   </div>
   <div>
     <%= f.label :question_type %><br>
-    <%= f.select :question_type_id, QuestionType.all.collect { |q| [q.name, q.id] }, include_blank: false, :value => @question.question_type.id %>
+    <%= f.select :question_type_id, QuestionType.all.collect { |q| [q.name, q.id] }, include_blank: false %>
   </div>
   <div>
-    <%= f.hidden_field :questionnaire_id, :value => @questionnaire.id %>
+    <%= f.hidden_field :questionnaire_id, :value => @question.questionnaire_id %>
     <%= f.hidden_field :id, :value => @question.id %>
   </div>
   <div>

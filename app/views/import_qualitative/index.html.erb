@@ -1,0 +1,34 @@
+<h1>ImportQualitative#index</h1>
+<div class="container">
+  <%= form_with url: import_qualitative_import_url, model: @questionnaire, multipart: true do |f| %>
+    Index of Email: <%= f.text_field :user %><br>
+    Index of Team: <%= f.text_field :team %><br>
+    Index of Title: <%= f.text_field :title %><br>
+    <% @questionnaire.questions.each do |question| %>
+      Index of <%= question.text %>:<br>
+      <%= f.text_field(question.label.to_sym)  %><br>
+    <% end %>
+    <div>
+      <%= f.hidden_field :id, :value => @questionnaire.id %>
+    </div>
+    <div class="row">
+    <div class="cols">
+        <div>
+          <%= f.file_field :file %>
+        </div>
+    </div>
+  </div>
+    <%= f.submit "Import CSV" %>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="cols">
+      Count: <%= Response.count.to_s %><br>
+      <% Response.all.each do |response| %>
+        <%= response.team_member.first_name %> <%= response.team_member.last_name %> <br>
+        * <%= response.question.text %> <%= response.value %><br>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% end %>
