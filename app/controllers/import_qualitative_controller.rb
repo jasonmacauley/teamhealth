@@ -22,11 +22,17 @@ class ImportQualitativeController < ApplicationController
     team_member = find_or_create_team_member(row[params[:questionnaire][:user].to_i],
                                              row[params[:questionnaire][:team].to_i],
                                              row[params[:questionnaire][:title].to_i])
+    month = row[params[:questionnaire][:month].to_i]
+    date = month.split('/')
+    period_start = Date.new(date[1].to_i, date[0].to_i, 1)
+    period_end = Date.new(date[1].to_i, date[0].to_i, -1)
     question_hash.each do |key, question|
       response = Response.new
       response.team_member_id = team_member.id
       response.question_id = question.id
       response.value = row[key.to_i]
+      response.period_start = period_start
+      response.period_end = period_end
       response.save
     end
   end

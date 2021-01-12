@@ -93,6 +93,7 @@ GEM
     ffi (1.14.2)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    google_visualr (2.5.1)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     jbuilder (2.10.1)
@@ -232,6 +233,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   csv
   devise
+  google_visualr (~> 2.5.1)
   jbuilder (~> 2.7)
   jquery-rails
   listen (~> 3.2)

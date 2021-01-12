@@ -34,15 +34,23 @@ class QuestionnaireController < ApplicationController
 
   def display
     @questionnaire = Questionnaire.find(params[:id])
+    @target_month = target_month
   end
 
   def collect
     @questionnaire = Questionnaire.find(params[:id])
+    month = params[:period]
+    year = Date.current.year
+    year = year - 1 if month > Date.current.month
+    period_start = Date.new(year, month, 1)
+    period_end = Date.new(year, month, -1)
+
     @questionnaire.questions.each do |q|
-      puts 'VALUE: ' + params[:questionnaire][q.label.to_sym].to_s
       response = Response.create(team_member_id: current_user.id,
                                  question_id: q.id,
-                                 value: params[:questionnaire][q.label.to_sym])
+                                 value: params[:questionnaire][q.label.to_sym],
+                                 period_start: period_start,
+                                 period_end: period_end)
       response.save
     end
     redirect_to(response_thanks_url(@questionnaire))
@@ -69,6 +77,12 @@ class QuestionnaireController < ApplicationController
   end
 
   private
+
+  def target_month
+    target_month = Date.current.month
+    target_month = (Date.current - 1.month).month if Date.current.day < 15
+    target_month
+  end
 
   def clone_q(question, questionnaire_id)
     question_clone = Question.create(text: question.text,

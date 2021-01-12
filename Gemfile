@@ -26,6 +26,7 @@ gem 'bootstrap'
 gem 'jquery-rails'
 gem 'csv'
 gem "nokogiri", ">= 1.11.0.rc4"
+gem "google_visualr", "~> 2.5.1"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

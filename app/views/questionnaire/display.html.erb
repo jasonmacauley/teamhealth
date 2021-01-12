@@ -4,6 +4,10 @@
 </p>
 <%= form_with url: collect_response_path, model: @questionnaire do |f| %>
   <div>
+    <%= f.label :period %><br>
+    <%= f.select( :period, Date::MONTHNAMES.each_with_index { |m, i| [m, i] }, include_blank: false, selected: Date::MONTHNAMES[@target_month]) %>
+  </div>
+  <div>
     <%= f.hidden_field :id, :value => @questionnaire.id %>
   </div>
     <% @questionnaire.questions.each do |question| %>

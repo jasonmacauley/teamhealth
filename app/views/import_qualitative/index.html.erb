@@ -4,6 +4,7 @@
     Index of Email: <%= f.text_field :user %><br>
     Index of Team: <%= f.text_field :team %><br>
     Index of Title: <%= f.text_field :title %><br>
+    Index of Month: <%= f.text_field :month %><br>
     <% @questionnaire.questions.each do |question| %>
       Index of <%= question.text %>:<br>
       <%= f.text_field(question.label.to_sym)  %><br>
