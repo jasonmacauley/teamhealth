@@ -1,0 +1,16 @@
+<%= form_with url: dashboards_path, model: @dashboard do |f| %>
+  <div>
+    <%= f.label :name %><br>
+    <%= f.text_field(:name, :value => @dashboard.name) %>
+  </div>
+  <div>
+    <%= f.label :description %><br>
+    <%= f.text_area(:description, :value => @dashboard.description) %>
+  </div>
+  <div>
+    <%= f.hidden_field :id, :value => @dashboard.id %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

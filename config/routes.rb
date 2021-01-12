@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'dashboard/index'
+  get 'dashboard/show/:id' => 'dashboard#show', as: :show_dashboard
+  get 'dashboard/new'
+  get 'dashboard/edit/:id' => 'dashboard#edit', as: :edit_dashboard
+  post 'dashboards' => 'dashboard#update'
+  patch 'dashboards' => 'dashboard#update'
+  get 'dashboard/delete/:id' => 'dashboard#delete', as: :delete_dashboard
   patch 'import_qualitative/import'
   get 'import_qualitative/index/:id' => 'import_qualitative#index', as: :import_quailitative
   get 'question_option/new/:id' => 'question_option#new', as: :add_question_option
