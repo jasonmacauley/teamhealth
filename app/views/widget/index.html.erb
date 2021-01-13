@@ -1,0 +1,8 @@
+<h1>Widgets</h1>
+<ul>
+  <% @widgets.each do |widget| %>
+    <li>
+      <%= link_to(widget.name, show_widget_path(widget)) %> - <%= link_to("Edit", edit_widget_path(widget)) %> | <%= link_to("Delete", delete_widget_path(widget)) %>
+    </li>
+  <% end %>
+</ul>

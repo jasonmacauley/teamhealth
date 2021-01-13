@@ -22,6 +22,8 @@ class WidgetConfigTypeController < ApplicationController
     end
     @config_type.name = params[:dashboard_widget_config_type][:name]
     @config_type.description = params[:dashboard_widget_config_type][:description]
+    @config_type.label = params[:dashboard_widget_config_type][:label]
+    @config_type.partial_name = params[:dashboard_widget_config_type][:partial_name]
     @config_type.save
     redirect_to(show_widget_config_type_path(@config_type))
   end
@@ -29,6 +31,6 @@ class WidgetConfigTypeController < ApplicationController
   def delete
     @config_type = DashboardWidgetConfigType.find(params[:id])
     @config_type.delete
-    redirect_to(widget_type_index_path)
+    redirect_to(widget_config_type_index_path)
   end
 end

@@ -9,9 +9,8 @@
       <ul>
         <% @widget_types.sort_by { | t| t.name  }.each do |type| %>
           <li>
-            <%= type.name %> <%= link_to("Edit", edit_widget_type_path(type)) %>  <%= link_to("Delete", delete_widget_type_path(type)) %>
+            <%= type.name %> <%= link_to("Edit", edit_widget_type_path(type)) %> | <%= link_to("Create Widget", new_widget_path(type)) %> | <%= link_to("Delete", delete_widget_type_path(type)) %>
           </li>
-
         <% end %>
       </ul>
     </div>

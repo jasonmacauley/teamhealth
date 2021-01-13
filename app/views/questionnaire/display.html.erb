@@ -11,6 +11,7 @@
     <%= f.hidden_field :id, :value => @questionnaire.id %>
   </div>
     <% @questionnaire.questions.each do |question| %>
+    <b><%= question.text %></b><br>
     <%= render(question.question_type.partial_name, question: question, f: f) %>
   <% end %>
   <div>

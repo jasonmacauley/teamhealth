@@ -1,0 +1,26 @@
+<h1><%= @widget_type.name %></h1>
+<p>
+  <%= @widget_type.description %>
+</p>
+<%= form_with url: widgets_path, model: @widget do |f| %>
+  <div>
+    <%= f.label :name %><br>
+    <%= f.text_field(:name, :value => @widget.name) %>
+  </div>
+  <div>
+    <%= f.label :description %><br>
+    <%= f.text_area(:description, :value => @widget.description) %>
+  </div>
+  <div>
+    <%= f.hidden_field :id, :value => @widget.id %>
+    <%= f.hidden_field :widget_type_id, :value => @widget_type.id %>
+  </div>
+  <% @widget_type.dashboard_widget_config_types.each do |config| %>
+    <% WidgetConfig.where(dashboard_widget_config_type: config.id, widget_id: @widget.id).each do |widget_config| %>
+      <%= render(config.partial_name, config: config, id: widget_config.value, f: f) %>
+    <% end %>
+  <% end %>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
