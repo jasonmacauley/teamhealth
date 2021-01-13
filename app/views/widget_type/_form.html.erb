@@ -1,0 +1,24 @@
+<%= form_with url: widget_types_path, model: @widget_type do |f| %>
+  <div>
+    <%= f.label :name %><br>
+    <%= f.text_field(:name, :value => @widget_type.name) %>
+  </div>
+  <div>
+    <%= f.label :description %><br>
+    <%= f.text_area(:description, :value => @widget_type.description) %>
+  </div>
+  <div>
+    <%= f.label :partial %><br>
+    <%= f.text_field(:partial, :value => @widget_type.partial) %>
+  </div>
+  <div>
+    <%= f.label :config_types %><br>
+    <%= f.select(:dashboard_widget_config_type_ids, DashboardWidgetConfigType.all.collect { |t| [t.name, t.id] }, {  }, { :multiple => true, :size => 5 } ) %>
+  </div>
+  <div>
+    <%= f.hidden_field :id, :value => @widget_type.id %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

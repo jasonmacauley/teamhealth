@@ -1,0 +1,16 @@
+<%= form_with url: widget_config_types_path, model: @config_type do |f| %>
+  <div>
+    <%= f.label :name %><br>
+    <%= f.text_field(:name, :value => @config_type.name) %>
+  </div>
+  <div>
+    <%= f.label :description %><br>
+    <%= f.text_area(:description, :value => @config_type.description) %>
+  </div>
+  <div>
+    <%= f.hidden_field :id, :value => @config_type.id %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

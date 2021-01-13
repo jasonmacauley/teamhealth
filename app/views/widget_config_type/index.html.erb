@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="cols-md-auto">
+      <h1>Widget Config Types</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="cols-md-auto">
+      <ul>
+        <% @config_types.sort_by { | t| t.name  }.each do |type| %>
+          <li>
+            <%= type.name %> <%= link_to("Edit", edit_widget_config_type_path(type)) %>  <%= link_to("Delete", delete_widget_config_type_path(type)) %>
+          </li>
+
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="cols-md-auto">
+      <%= link_to("Add Widget Type", widget_config_type_new_path) %>
+    </div>
+  </div>
+</div>

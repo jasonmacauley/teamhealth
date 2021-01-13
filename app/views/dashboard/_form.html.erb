@@ -8,6 +8,9 @@
     <%= f.text_area(:description, :value => @dashboard.description) %>
   </div>
   <div>
+    <%= f.label :private %>: <%= f.check_box :private %>
+  </div>
+  <div>
     <%= f.hidden_field :id, :value => @dashboard.id %>
   </div>
   <div>

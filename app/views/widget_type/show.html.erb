@@ -1,0 +1,25 @@
+<h1>WidgetType#show</h1>
+<div class="container">
+  <div class="row">
+    <div class="cols">
+      Name: <%= @widget_type.name %><br>
+      Description: <%= @widget_type.description %>
+      Partial: <%= @widget_type.partial %>
+    </div>
+    <div class="cols">
+      Config Options: <br>
+      <ul>
+        <% @widget_type.dashboard_widget_config_types.each do |type| %>
+          <li>
+            <%= type.name %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="cols">
+      <%= link_to("All Types", widget_type_index_path) %>
+    </div>
+  </div>
+</div>
