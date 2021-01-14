@@ -6,16 +6,11 @@ class DashboardController < ApplicationController
   def show
     @dashboard = Dashboard.find(params[:id])
     redirect_to(dashboard_index_path) if @dashboard.private && @dashboard.user_id != current_user.id
-    data_table = GoogleVisualr::DataTable.new
-    data_table.new_column('string', 'Year')
-    data_table.new_column('number', 'foo')
-    data_table.new_column('number', 'bar')
-    data_table.add_rows([
-        ['2020', 1000, 200],
-        ['2021', 500, 500],
-        ['2019', 2000, 700]])
-    option = { width: 400, height: 240, title: 'Stuff' }
-    @chart = GoogleVisualr::Interactive::AreaChart.new(data_table, option)
+
+    widget = WidgetFactory.instance.get_widget('Team Qualitative Chart')
+    options = { 'organization_id' => 903,
+                'questionnaire_id' => 4 }
+    @chart = widget.generate(options)
   end
 
   def new

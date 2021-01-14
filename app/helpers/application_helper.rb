@@ -7,4 +7,8 @@ module ApplicationHelper
     end
     link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
   end
+
+  def int?(str)
+    str.to_i.to_s == str
+  end
 end

@@ -21,6 +21,10 @@ class BaseWidget
     widgets
   end
 
+  def generate(options)
+    raise(NotImplementedError)
+  end
+
   def name
     self.class::NAME
   end
