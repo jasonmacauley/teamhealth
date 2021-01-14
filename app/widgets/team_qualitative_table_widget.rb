@@ -1,0 +1,2 @@
+class TeamQualitativeTableWidget
+end
