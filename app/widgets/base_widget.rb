@@ -1,7 +1,10 @@
-module Widgets
-  class BaseWidget
-    extend ActiveSupport::DescendantsTracker
-    NAME = 'Base Widget'.freeze
+class BaseWidget
+  extend ActiveSupport::DescendantsTracker
+  NAME = 'Base Widget'.freeze
+  attr_reader :widget_type
+
+  def initialize()
+    @widget_type = nil
   end
 
   def get_widget(name)
@@ -10,11 +13,15 @@ module Widgets
     end
   end
 
-  def all
-    widges = []
+  def all_widgets
+    widgets = []
     self.class.descendants.each do |type|
-      puts type::NAME
       widgets.push(type.new)
     end
+    widgets
+  end
+
+  def name
+    self.class::NAME
   end
 end

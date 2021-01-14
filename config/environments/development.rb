@@ -7,7 +7,9 @@ Rails.application.configure do
   config.cache_classes = false
 
   # Do not eager load code on boot.
-  config.eager_load = false
+  config.eager_load = true
+
+  #config.eager_load_paths += %W( #{config.root}/widgets )
 
   # Show full error reports.
   config.consider_all_requests_local = true

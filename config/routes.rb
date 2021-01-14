@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   patch 'widget_config_types' => 'widget_config_type#update'
   get 'widget_config_type/delete/:id' => 'widget_config_type#delete', as: :delete_widget_config_type
   get 'widget_type/index'
+  get 'widget_type/add' => 'widget_type#add_widget_types', as: :add_widget_types
   get 'widget_type/show/:id' => 'widget_type#show', as: :show_widget_type
   get 'widget_type/edit/:id' => 'widget_type#edit', as: :edit_widget_type
   get 'widget_type/new'

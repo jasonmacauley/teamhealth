@@ -11,6 +11,15 @@ class WidgetTypeController < ApplicationController
     @widget_type = WidgetType.find(params[:id])
   end
 
+  def add_widget_types
+    BaseWidget.new.all_widgets.each do |widget|
+      next unless widget.widget_type.nil?
+
+      WidgetType.create(name: widget.class::NAME)
+    end
+    redirect_to(widget_type_index_path)
+  end
+
   def new
     @widget_type = WidgetType.new
   end

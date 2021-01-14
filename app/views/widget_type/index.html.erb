@@ -17,7 +17,11 @@
   </div>
   <div class="row">
     <div class="cols-md-auto">
-      <%= link_to("Add Widget Type", widget_type_new_path) %>
+      <%= link_to("Add Widget Types", add_widget_types_path) %>
     </div>
   </div>
 </div>
+
+Widgets <% BaseWidget.new.all_widgets.each do |widget| %>
+  <%= widget.name %><br>
+<% end %>
