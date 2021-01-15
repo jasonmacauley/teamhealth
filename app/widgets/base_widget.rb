@@ -79,8 +79,9 @@ class BaseWidget
     results.keys.sort.each do |month|
       row = [month]
       results[month].keys.sort.each do |metric|
-        average = results[month][metric]['values'].sum(0.0) / results[month][metric]['values'].count
-        row.push(average)
+        stat = results[month][metric]['values'].sum(0.0) / results[month][metric]['values'].count
+        stat = results[month][metric]['values'].sum(0.0) if metric =~ /Through/
+        row.push(stat)
       end
       rows.push(row)
     end
@@ -94,17 +95,27 @@ class BaseWidget
     options['metric_type_ids'].each do |metric_type_id|
       next unless int?(metric_type_id)
 
-      metric_type = MetricType.find(metric_type_id)
-      Metric.where(organization_id: org.id, metric_type_id: metric_type_id).each do |metric|
-        results[metric.period_start] = {} if results[metric.period_start].nil?
-        results[metric.period_start][metric_type.name] = { 'values' => [] } if results[metric.period_start][metric_type.name].nil?
-        results[metric.period_start][metric_type.name]['values'].push(metric.value)
-      end
+      collect_metrics_by_org(metric_type_id, org, results)
     end
     results
   end
 
   def int?(str)
     str.to_i.to_s == str
+  end
+
+  private
+
+  def collect_metrics_by_org(metric_type_id, org, results)
+    org.organizations.each do |o|
+      results = collect_metrics_by_org(metric_type_id, o, results)
+    end
+    metric_type = MetricType.find(metric_type_id)
+    Metric.where(organization_id: org.id, metric_type_id: metric_type_id).each do |metric|
+      results[metric.period_start] = {} if results[metric.period_start].nil?
+      results[metric.period_start][metric_type.name] = { 'values' => [] } if results[metric.period_start][metric_type.name].nil?
+      results[metric.period_start][metric_type.name]['values'].push(metric.value)
+    end
+    results
   end
 end
