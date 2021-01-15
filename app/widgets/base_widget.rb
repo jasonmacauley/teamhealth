@@ -28,4 +28,8 @@ class BaseWidget
   def name
     self.class::NAME
   end
+
+  def int?(str)
+    str.to_i.to_s == str
+  end
 end
