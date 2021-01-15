@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   get 'dashboard/edit/:id' => 'dashboard#edit', as: :edit_dashboard
   post 'dashboards' => 'dashboard#update'
   patch 'dashboards' => 'dashboard#update'
+  patch 'dashboard/add_widget' => 'dashboard#add_widget', as: :add_widget
   get 'dashboard/delete/:id' => 'dashboard#delete', as: :delete_dashboard
   patch 'import_qualitative/import'
   get 'import_qualitative/index/:id' => 'import_qualitative#index', as: :import_quailitative

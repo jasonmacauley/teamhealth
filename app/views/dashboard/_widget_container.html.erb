@@ -1,0 +1,6 @@
+<div class="container">
+  <% div_id = "chart_" + widget.id.to_s %>
+  <div id="<%= div_id %>"></div>
+  <% chart = WidgetFactory.instance.get_widget(widget) %>
+  <%= render_chart chart, div_id, widget: widget %>
+</div>

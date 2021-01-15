@@ -47,13 +47,7 @@ class WidgetController < ApplicationController
 
   def preview
     @widget = Widget.find(params[:id])
-    widget_type = WidgetFactory.instance.get_widget(@widget.widget_type.name)
-    options = {}
-    @widget.widget_configs.each do |conf|
-      options[conf.dashboard_widget_config_type.label] = [] if options[conf.dashboard_widget_config_type.label].nil?
-      options[conf.dashboard_widget_config_type.label].push(conf.value)
-    end
-    @chart = widget_type.generate(options)
+    @chart = WidgetFactory.instance.get_widget(@widget)
   end
 
   private

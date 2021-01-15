@@ -1,3 +1,27 @@
-<h1>Dashboard#show</h1>
-<div id='chart'></div>
-<%= render_chart @chart, 'chart' %>
+<div class="container">
+  <div class="row">
+    <div class="cols">
+      <h1><%= @dashboard.name %></h1>
+      <%= form_with url: add_widget_path, model: @dashboard do |f| %>
+        <div>
+          <%= f.label :widget %><br>
+          <%= f.select :widget_id, Widget.all.collect { |w| [w.name, w.id] }, include_blank: false %>
+        </div>
+        <div>
+          <%= f.hidden_field :id, :value => @dashboard.id %>
+        </div>
+        <div>
+          <%= f.submit("Add Widget") %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <% @dashboard.widgets.each do |widget| %>
+    <div class="cols">
+      <%= render "widget_container", widget: widget %>
+    </div>
+    <% end %>
+  </div>
+</div>
+
