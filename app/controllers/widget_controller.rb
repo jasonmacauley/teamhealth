@@ -15,6 +15,20 @@ class WidgetController < ApplicationController
   def edit
     @widget = Widget.find(params[:id])
     @widget_type = @widget.widget_type
+    @configs = []
+    @widget_type.dashboard_widget_config_types.each do |type|
+      confs = @widget.widget_configs.select { |c| c.dashboard_widget_config_type_id == type.id }
+      unless confs.empty?
+        confs.each do |c|
+          @configs.push(c)
+        end
+        next
+      end
+      conf = WidgetConfig.new
+      conf.dashboard_widget_config_type = type
+      conf.widget_id = @widget.id
+      @configs.push(conf)
+    end
   end
 
   def update
@@ -28,14 +42,10 @@ class WidgetController < ApplicationController
     @widget.widget_type_id = @widget_type.id
     @widget.save
     @widget_type.dashboard_widget_config_types.each do |config_type|
-      next unless WidgetConfig.where(dashboard_widget_config_type: config_type.id,
-                                     widget_id: @widget.id,
-                                     value: params[:widget][config_type.label.to_sym]).empty?
-
-      config = WidgetConfig.create(dashboard_widget_config_type_id: config_type.id,
-                                   widget_id: @widget.id,
-                                   value: params[:widget][config_type.label.to_sym])
-      config.save
+      conf = @widget.widget_configs.select { |c| c.dashboard_widget_config_type_id == config_type.id }[0]
+      conf = WidgetConfig.new(dashboard_widget_config_type_id: config_type.id, widget_id: @widget.id) if conf.nil?
+      conf.value = params[:widget][config_type.label.to_sym]
+      conf.save
     end
     redirect_to(show_widget_path(@widget))
   end
