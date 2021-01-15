@@ -1,5 +1,5 @@
 <% @member = TeamMember.find_by_user_id(current_user.id) %>
-<% questionnaire_id = id.to_i %>
+<% questionnaire_id = Array(id)[0].to_i %>
 <div>
   <%= f.label :questionnaire %><br>
   <%= f.select :questionnaire_id, Questionnaire.all.collect { |q| [q.name, q.id] }, include_blank: false, selected: questionnaire_id %>

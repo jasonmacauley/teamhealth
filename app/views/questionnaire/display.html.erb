@@ -12,7 +12,7 @@
   </div>
     <% @questionnaire.questions.each do |question| %>
     <b><%= question.text %></b><br>
-    <%= render(question.question_type.partial_name, question: question, id: nil, f: f) %>
+    <%= render(question.question_type.partial_name, question: question, id: [], f: f) %>
   <% end %>
   <div>
     <%= f.submit %>

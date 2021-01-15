@@ -69,6 +69,41 @@ class BaseWidget
     responses
   end
 
+  def quantitative_data_table(results)
+    data_table = GoogleVisualr::DataTable.new
+    data_table.new_column('date', 'month')
+    results[results.keys[0]].keys.sort.each do |metric|
+      data_table.new_column('number', metric)
+    end
+    rows = []
+    results.keys.sort.each do |month|
+      row = [month]
+      results[month].keys.sort.each do |metric|
+        average = results[month][metric]['values'].sum(0.0) / results[month][metric]['values'].count
+        row.push(average)
+      end
+      rows.push(row)
+    end
+    data_table.add_rows(rows)
+    puts 'DATA TABLE: ' + data_table.to_s
+    data_table
+  end
+
+  def collect_metrics(options, org)
+    results = {}
+    options['metric_type_ids'].each do |metric_type_id|
+      next unless int?(metric_type_id)
+
+      metric_type = MetricType.find(metric_type_id)
+      Metric.where(organization_id: org.id, metric_type_id: metric_type_id).each do |metric|
+        results[metric.period_start] = {} if results[metric.period_start].nil?
+        results[metric.period_start][metric_type.name] = { 'values' => [] } if results[metric.period_start][metric_type.name].nil?
+        results[metric.period_start][metric_type.name]['values'].push(metric.value)
+      end
+    end
+    results
+  end
+
   def int?(str)
     str.to_i.to_s == str
   end

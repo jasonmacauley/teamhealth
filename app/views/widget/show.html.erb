@@ -3,7 +3,8 @@
     <div class="cols">
       <h1><%= @widget.name %></h1>
       <%= @widget.description %><br>
-      Type: <%= @widget.widget_type.name %>
+      Type: <%= @widget.widget_type.name %><br>
+      <%= link_to("Preview", preview_widget_path(@widget)) %> | <%= link_to("Edit", edit_widget_path(@widget)) %>
       <ul>
         <% @widget.widget_configs.each do |config| %>
           <li>

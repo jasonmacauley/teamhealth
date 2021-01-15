@@ -15,8 +15,8 @@
     <%= f.hidden_field :id, :value => @widget.id %>
     <%= f.hidden_field :widget_type_id, :value => @widget_type.id %>
   </div>
-  <% @configs.each do |config| %>
-      <%= render(config.dashboard_widget_config_type.partial_name, config: config, id: config.value, f: f) %>
+  <% @configs.keys.each do |config| %>
+      <%= render(@configs[config]['type'].partial_name, config: @configs[config]['type'], id: @configs[config]['value'], f: f) %>
   <% end %>
   <div>
     <%= f.submit %>

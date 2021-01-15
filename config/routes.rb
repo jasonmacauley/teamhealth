@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post 'widgets' => 'widget#update'
   patch 'widgets' => 'widget#update'
   get 'widget/delete/:id' => 'widget#delete', as: :delete_widget
+  get 'widget/preview/:id' => 'widget#preview', as: :preview_widget
   get 'widget_config_type/index'
   get 'widget_config_type/show/:id' => 'widget_config_type#show', as: :show_widget_config_type
   get 'widget_config_type/edit/:id' => 'widget_config_type#edit', as: :edit_widget_config_type

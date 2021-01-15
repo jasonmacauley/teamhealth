@@ -6,9 +6,9 @@ class TeamQualitativeChartWidget < BaseWidget
   end
 
   def generate(options)
-    org = Organization.find(options['organization_id'])
+    org = Organization.find(options['organization_id'][0])
     members = org.all_org_members
-    questionnaire = Questionnaire.find(options['questionnaire_id'])
+    questionnaire = Questionnaire.find(options['questionnaire_id'][0])
     response_data = collect_questionnaire_data(members, questionnaire)
     build_chart(org, questionnaire, response_data)
   end
