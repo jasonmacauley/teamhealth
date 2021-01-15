@@ -1,4 +1,4 @@
 <div>
   <%= f.label :metrics %><br>
-  <%= f.select(:metric_type_ids, options_for_select(MetricType.all.collect { |t| [t.name, t.id] }, id.collect { |i| i }), {  }, { :multiple => true, :size => 5 } ) %>
+  <%= f.select(:metric_type_ids, options_for_select(MetricType.all.collect { |t| [t.name, t.id] }, Array(id).collect { |i| i }), {  }, { :multiple => true, :size => 5 } ) %>
 </div>

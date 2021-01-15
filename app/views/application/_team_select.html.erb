@@ -1,5 +1,5 @@
 <% @member = TeamMember.find_by_user_id(current_user.id) %>
-<% organization_id = id[0].to_i %>
+<% organization_id = Array(id)[0].to_i %>
 <div>
   <%= f.label :team %><br>
   <%= f.select :organization_id, @member.organization_roles.collect { |t| [t.organization.name, t.organization.id] }, include_blank: false, selected: organization_id %>
