@@ -47,7 +47,6 @@ class WidgetController < ApplicationController
 
   def preview
     @widget = Widget.find(params[:id])
-    @chart = WidgetFactory.instance.get_widget(@widget)
   end
 
   private

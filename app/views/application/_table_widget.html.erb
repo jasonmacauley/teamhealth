@@ -1,0 +1,26 @@
+<% div_id = "table_" + widget.id.to_s %>
+<div id="<%= div_id %>">
+  <% data = widget.generate %>
+  <table>
+    <tr>
+      <th></th>
+      <% data.keys.sort.each do |month| %>
+        <th><%= month %></th>
+      <% end %>
+    </tr>
+    <% key = data.keys[0] %>
+    <% data[key].keys.sort.each do |metric| %>
+      <% type = MetricType.find_by_name(metric) %>
+    <tr>
+      <td>
+        <%= metric %>
+      </td>
+      <% data.keys.sort.each do |month| %>
+        <td>
+          <%= type.aggregation_method =~ /sum/i ? data[month][metric]['values'][0] : data[month][metric]['values'][0].to_s + '%' %>
+        </td>
+      <% end %>
+    </tr>
+    <% end %>
+  </table>
+</div>

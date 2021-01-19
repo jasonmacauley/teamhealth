@@ -79,14 +79,12 @@ class BaseWidget
     results.keys.sort.each do |month|
       row = [month]
       results[month].keys.sort.each do |metric|
-        stat = results[month][metric]['values'].sum(0.0) / results[month][metric]['values'].count
-        stat = results[month][metric]['values'].sum(0.0) if metric =~ /Through/
+        stat = aggregate_metric(metric, month, results)
         row.push(stat)
       end
       rows.push(row)
     end
     data_table.add_rows(rows)
-    puts 'DATA TABLE: ' + data_table.to_s
     data_table
   end
 
@@ -105,6 +103,13 @@ class BaseWidget
   end
 
   private
+
+  def aggregate_metric(metric, month, results)
+    method = MetricType.find_by_name(metric).aggregation_method
+    return results[month][metric]['values'].sum(0.0) / results[month][metric]['values'].count if method =~ /average/
+
+    results[month][metric]['values'].sum(0.0)
+  end
 
   def collect_metrics_by_org(metric_type_id, org, results)
     org.organizations.each do |o|

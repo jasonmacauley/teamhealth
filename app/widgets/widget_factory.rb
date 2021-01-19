@@ -1,12 +1,7 @@
 class WidgetFactory
   include Singleton
   def get_widget(widget)
-    options = {}
-    widget.widget_configs.each do |conf|
-      options[conf.dashboard_widget_config_type.label] = [] if options[conf.dashboard_widget_config_type.label].nil?
-      options[conf.dashboard_widget_config_type.label].push(conf.value)
-    end
-    @widget_hash[widget.widget_type.name].generate(options)
+    @widget_hash[widget.widget_type.name]
   end
 
   private

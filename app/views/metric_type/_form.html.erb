@@ -5,7 +5,11 @@
   </div>
   <div>
     <%= f.label :label %><br>
-    <%= f.select :label, ["Calculated", "Manual"], include_blank: false %>
+    <%= f.select :label, ["Calculated", "Manual"], include_blank: false, selected: @metric_type.label %>
+  </div>
+  <div>
+    <%= f.label :aggregation_method %><br>
+    <%= f.select :aggregation_method, ["Sum", "Average"], include_blank: false, selected: @metric_type.aggregation_method %>
   </div>
   <div>
     <%= f.label :description %><br>

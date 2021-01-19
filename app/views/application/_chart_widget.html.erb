@@ -1,0 +1,4 @@
+<% div_id = "chart_" + widget.id.to_s %>
+<div id="<%= div_id %>"></div>
+<% chart = widget.generate %>
+<%= render_chart chart, div_id, widget: widget %>

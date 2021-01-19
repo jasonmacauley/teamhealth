@@ -1,2 +1,3 @@
-<div id='chart'></div>
-<%= render_chart @chart, 'chart' %>
+<div class="container">
+  <%= render(@widget.widget_type.partial, widget: @widget) %>
+</div>
