@@ -1,0 +1,20 @@
+<% div_id = "comments_table_" + widget.id.to_s %>
+<div id="<%= div_id %>">
+  <% data = widget.generate %>
+  <table>
+    <% data.keys.each do |questionnaire| %>
+      <tr>
+        <th colspan="3">
+          <%= questionnaire %>
+        </th>
+      </tr>
+        <% data[questionnaire].sort_by{ |r| r.period_start }.reverse.each do |response| %>
+          <tr>
+            <td><%= response.period_start %></td>
+            <td><%= response.team_member.first_name %> <%= response.team_member.last_name %></td>
+            <td><%= response.value %></td>
+          </tr>
+        <% end %>
+    <% end %>
+  </table>
+</div>

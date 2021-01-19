@@ -106,7 +106,7 @@ class BaseWidget
 
   def aggregate_metric(metric, month, results)
     method = MetricType.find_by_name(metric).aggregation_method
-    return results[month][metric]['values'].sum(0.0) / results[month][metric]['values'].count if method =~ /average/
+    return results[month][metric]['values'].sum(0.0) / results[month][metric]['values'].count if method =~ /average/i
 
     results[month][metric]['values'].sum(0.0)
   end

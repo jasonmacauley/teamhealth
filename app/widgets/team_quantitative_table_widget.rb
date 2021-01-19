@@ -1,5 +1,5 @@
-class TeamQualitativeTableWidget < BaseWidget
-  NAME = 'Team Qualitative Table'.freeze
+class TeamQuantitativeTableWidget < BaseWidget
+  NAME = 'Team Quantitative Table'.freeze
 
   def initialize
     @widget_type = WidgetType.find_by_name(self.class::NAME)
