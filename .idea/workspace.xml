@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b6e0052-668d-4cd2-abeb-1ca630a0bacc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/views/application/_comments_widget.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/widgets/team_comments_widget.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/application/_comments_widget.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/application/_comments_widget.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/application/_table_widget.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/application/_table_widget.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/dashboard/_widget_container.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/_widget_container.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/widgets/base_widget.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/widgets/base_widget.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/widgets/team_qualitative_table_widget.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/widgets/team_quantitative_table_widget.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/dashboard/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/dashboard/show.html.erb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,19 +25,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/widgets/team_quantitative_chart_widget.rb">
+        <entry file="file://$PROJECT_DIR$/app/views/dashboard/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" selection-start-line="7" selection-end-line="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/widget.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="405">
+              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
             </state>
           </provider>
         </entry>
@@ -71,9 +60,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/application/_comments_widget.html.erb">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -84,13 +77,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/application/_table_widget.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+            <state relative-caret-position="300">
+              <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/dashboard/_widget_container.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
@@ -150,7 +143,6 @@
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/models/dashboard.rb" />
         <option value="$PROJECT_DIR$/app/controllers/dashboard_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/dashboard/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/application/_team_select.html.erb" />
         <option value="$PROJECT_DIR$/app/views/application/_metrics_select.erb" />
         <option value="$PROJECT_DIR$/db/migrate/20210119142201_add_aggregation_method_to_metric_type.rb" />
@@ -160,14 +152,15 @@
         <option value="$PROJECT_DIR$/app/widgets/widget_factory.rb" />
         <option value="$PROJECT_DIR$/app/controllers/widget_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/widget.rb" />
-        <option value="$PROJECT_DIR$/app/views/application/_table_widget.html.erb" />
         <option value="$PROJECT_DIR$/app/widgets/base_widget.rb" />
         <option value="$PROJECT_DIR$/app/widgets/team_qualitative_table_widget.rb" />
         <option value="$PROJECT_DIR$/app/widgets/team_quantitative_table_widget.rb" />
         <option value="$PROJECT_DIR$/app/widgets/team_comments_widget.rb" />
-        <option value="$PROJECT_DIR$/app/views/application/_comments_widget.html.erb" />
         <option value="$PROJECT_DIR$/app/views/application/_chart_widget.html.erb" />
         <option value="$PROJECT_DIR$/app/views/dashboard/_widget_container.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/dashboard/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/application/_table_widget.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/application/_comments_widget.html.erb" />
       </list>
     </option>
   </component>
@@ -198,6 +191,19 @@
               <item name="teamhealth" type="b2602c69:ProjectViewProjectNode" />
               <item name="teamhealth" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teamhealth" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teamhealth" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teamhealth" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teamhealth" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="stylesheets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="teamhealth" type="b2602c69:ProjectViewProjectNode" />
@@ -549,18 +555,18 @@
       <workItem from="1608645445111" duration="166922000" />
       <workItem from="1610634734669" duration="19281000" />
       <workItem from="1610664543268" duration="916000" />
-      <workItem from="1610665495019" duration="40119000" />
+      <workItem from="1610665495019" duration="43788000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="227238000" />
+    <option name="totallyTimeSpent" value="230907000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1893" y="51" width="1681" height="1027" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20988408" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20988408" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -573,7 +579,7 @@
       <window_info anchor="bottom" id="Docker" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32894737" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32894737" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32894737" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -608,9 +614,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/initializers/cookies_serializer.rb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/initializers/devise.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3332" />
@@ -847,13 +850,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/dashboard/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/widgets/widget_factory.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -896,13 +892,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/application/_table_widget.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/widgets/team_comments_widget.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -910,16 +899,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/application/_comments_widget.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/application/_chart_widget.html.erb">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/application/_chart_widget.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/dashboard.scss">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/dashboard/_widget_container.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/dashboard/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/application/_table_widget.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/application/_comments_widget.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
         </state>
       </provider>
     </entry>
