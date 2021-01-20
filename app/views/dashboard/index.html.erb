@@ -6,7 +6,7 @@
       <ul>
         <% @dashboards.each do |dashboard| %>
           <li>
-            <%= link_to(dashboard.name, show_dashboard_path(dashboard)) %> | <%= link_to("Edit", edit_dashboard_path(dashboard)) %>
+            <%= link_to(dashboard.name, show_dashboard_path(dashboard)) %> | <%= link_to("Edit", edit_dashboard_path(dashboard)) %> | <%= link_to('Delete', delete_dashboard_path(dashboard)) %>
           </li>
         <% end %>
       </ul>

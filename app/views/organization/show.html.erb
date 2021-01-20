@@ -4,6 +4,20 @@
       <h1>Organization: <%= @org.name %></h1>
       <%= link_to("Add Child Org", add_organization_path(@org)) %> | <%= link_to("Edit", edit_organization_path(@org)) %>
     </div>
+    <div>
+      <%= form_with url: generate_dashboards_path, model: @dashboard do |f| %>
+        <div>
+          <%= f.label :dashboard %><br>
+          <%= f.select :dashboard_id, Dashboard.all.collect { |d| [d.name, d.id] }, include_blank: false %>
+        </div>
+        <div>
+          <%= f.hidden_field :organization_id, :value => @org.id %>
+        </div>
+        <div>
+          <%= f.submit("Generate Dashboards") %>
+        </div>
+      <% end %>
+    </div>
     <div class="cols-md-auto">
     </div>
   </div>

@@ -15,6 +15,24 @@ class WidgetFactory
     end
   end
 
+  def create_widget(options)
+    widget = Widget.new
+    widget_type = WidgetType.find(options[:widget_type_id])
+    widget.name = options[:name]
+    widget.description = options[:description]
+    widget.widget_type_id = widget_type.id
+    widget.save
+    widget.widget_configs = []
+    widget_type.dashboard_widget_config_types.each do |config_type|
+      values = Array(options[config_type.label.to_sym])
+      values.each do |value|
+        WidgetConfig.create(dashboard_widget_config_type_id: config_type.id,
+                            widget_id: widget.id,
+                            value: value)
+      end
+    end
+  end
+
   private
 
   def load_widgets

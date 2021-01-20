@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   patch 'dashboards' => 'dashboard#update'
   patch 'dashboard/add_widget' => 'dashboard#add_widget', as: :add_widget
   get 'dashboard/delete/:id' => 'dashboard#delete', as: :delete_dashboard
+  post 'dashboard/generate_org_dashboards' => 'dashboard#generate_organization_dashboards', as: :generate_dashboards
   patch 'import_qualitative/import'
   get 'import_qualitative/index/:id' => 'import_qualitative#index', as: :import_quailitative
   get 'question_option/new/:id' => 'question_option#new', as: :add_question_option

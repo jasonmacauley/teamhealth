@@ -37,8 +37,52 @@ class DashboardController < ApplicationController
     redirect_to(show_dashboard_path(@dashboard))
   end
 
+  def generate_organization_dashboards
+    org = Organization.find(params[:organization_id])
+    template_dashboard = Dashboard.find(params[:dashboard_id])
+    build_org_dashboard(org, template_dashboard)
+    redirect_to(dashboard_index_path)
+  end
+
   def delete
     @dashboard = Dashboard.find(params[:id])
     @dashboard.delete
+    redirect_to(dashboard_index_path)
+  end
+
+  private
+
+  def build_org_dashboard(org, template_dashboard)
+    json = template_dashboard.as_json(except: :id)
+    dashboard = Dashboard.new(json)
+    dashboard.name = org.name + ' Health Dashboard'
+    dashboard.private = false
+    dashboard.save
+    build_org_widgets(org, template_dashboard, dashboard)
+    org.organizations.each do |sub_org|
+      build_org_dashboard(sub_org, template_dashboard)
+    end
+  end
+
+  def build_org_widgets(org, template_dashboard, new_dashboard)
+    template_dashboard.widgets.each do |template_widget|
+      json = template_widget.as_json(except: :id)
+      widget = Widget.new(json)
+      widget.name = org.name + ' ' + widget.widget_type.name
+      widget.save
+      new_dashboard.widgets.push(widget)
+      build_widget_config(org, template_widget, widget)
+    end
+  end
+
+  def build_widget_config(org, template_widget, widget)
+    org_type = DashboardWidgetConfigType.find_by_name('organization')
+    template_widget.widget_configs.each do |template_config|
+      config_json = template_config.as_json(except: :id)
+      widget_config = WidgetConfig.new(config_json)
+      widget_config.widget_id = widget.id
+      widget_config.value = org.id if widget_config.dashboard_widget_config_type.id == org_type.id
+      widget_config.save
+    end
   end
 end
