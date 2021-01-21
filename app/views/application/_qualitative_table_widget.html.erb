@@ -1,0 +1,53 @@
+<% div_id = "table_" + widget.id.to_s %>
+<div id="<%= div_id %>">
+  <% response_data = widget.generate %>
+  <% response_data.each do |data| %>
+    <% col_count = data['response_count'].keys.count + 1 %>
+    <div class="row row-cols-<%= col_count %> align-items-start">
+      <div class="col-float">
+        <h3><%= data['questionnaire'].name %></h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col"></div>
+      <% data[data.keys[0]].keys.sort.each do |month| %>
+        <div class="col">
+          <%= month %>
+        </div>
+      <% end %>
+    </div>
+    <% data['questionnaire'].questions.each do |question| %>
+      <% next if data[question.id].nil? %>
+      <div class="row">
+        <div class="col">
+          <%= question.text %>
+        </div>
+        <% data[question.id].keys.sort.each do |month| %>
+          <div class="col">
+            <%= data[question.id][month]['average'].round(1) %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="row">
+      <div class="col">
+        Response Count
+      </div>
+      <% data['response_count'].keys.sort.each do |month| %>
+        <div class="col">
+          <%= data['response_count'][month] %>
+        </div>
+      <% end %>
+    </div>
+    <div class="row">
+      <div class="col">
+        Response Rate
+      </div>
+      <% data['response_rate'].keys.sort.each do |month| %>
+        <div class="col">
+          <%= data['response_rate'][month] %>%
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

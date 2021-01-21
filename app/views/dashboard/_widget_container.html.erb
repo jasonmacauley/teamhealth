@@ -1,4 +1,5 @@
 <div class="container-fluid">
-  <h3><%= widget.name %></h3>
+  <h3><%= widget.name %></h3><br>
+  <%= link_to('Configure', edit_widget_path(widget)) %>
   <%= render(widget.widget_type.partial, widget: widget) %>
 </div>
