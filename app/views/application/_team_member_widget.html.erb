@@ -1,0 +1,27 @@
+<% div_id = "table_" + widget.id.to_s %>
+<div id="<%= div_id %>">
+  <% data = widget.generate %>
+  <div class="row">
+    <div class="cols=*">
+      <h3>Team Members</h3>
+    </div>
+  </div>
+  <% data.keys.sort.each do |team| %>
+    <div class="row">
+      <div class="col">
+        <ul>
+          <li>
+            <%= team.name %>
+            <ul>
+              <% data[team].each do |member| %>
+              <li>
+                <%= member.first_name + ' ' + member.last_name + ' - ' + member.title.name + ' ' + member.location.name %>
+              </li>
+              <% end %>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+</div>
