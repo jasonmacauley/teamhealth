@@ -1,33 +1,29 @@
-<div class="row">
-  <div class="cols-md-auto">
-    <h1>Metrics#add</h1>
-  </div>
-</div>
-<%= form_with url: metrics_update_path, model: @metric do |f| %>
 <div class="container">
   <div class="row">
-    <div class="cols-md-auto">
-      <%= f.label :month %>
-    </div>
-    <div class="cols-md-auto">
-      <%= f.select(:month, Date::MONTHNAMES.each_with_index { |m, i| [m, i] }) %>
+    <div class="col">
+      <h1>Metrics for <%= @team.name %></h1>
     </div>
   </div>
-  <% @metrics.each do |metric| %>
+  <%= form_with url: metrics_update_path, model: @metric do |f| %>
     <div class="row">
-      <div class="cols">
-        <%= metric.name %>
+      <div class="col">
+        <%= f.label :month %><br>
+        <%= f.select(:month, Date::MONTHNAMES.each_with_index { |m, i| [m, i] }) %>
       </div>
-      <div class="cols">
-        <%= f.send(:text_field, metric.name) %>
+    </div>
+    <% @metrics.each do |metric| %>
+      <div class="row">
+        <div class="col">
+          <%= metric.name %><br>
+          <%= f.send(:text_field, metric.name) %>
+        </div>
       </div>
+    <% end %>
+    <div>
+      <%= f.hidden_field :team_id, :value => @team.id %>
+    </div>
+    <div>
+      <%= f.submit %>
     </div>
   <% end %>
-  <div>
-    <%= f.hidden_field :team_id, :value => @team.id %>
-  </div>
-  <div>
-    <%= f.submit %>
-  </div>
 </div>
-<% end %>

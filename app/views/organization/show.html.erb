@@ -1,45 +1,25 @@
 <div class="container">
   <div class="row justify-content-md-left">
-    <div class="cols-md-auto">
+    <div class="cols-sm-2">
       <h1>Organization: <%= @org.name %></h1>
       <%= link_to("Add Child Org", add_organization_path(@org)) %> | <%= link_to("Edit", edit_organization_path(@org)) %>
     </div>
-    <div>
-      <%= form_with url: generate_dashboards_path, model: @dashboard do |f| %>
-        <div>
-          <%= f.label :dashboard %><br>
-          <%= f.select :dashboard_id, Dashboard.all.collect { |d| [d.name, d.id] }, include_blank: false %>
-        </div>
-        <div>
-          <%= f.hidden_field :organization_id, :value => @org.id %>
-        </div>
-        <div>
-          <%= f.submit("Generate Dashboards") %>
-        </div>
-      <% end %>
-    </div>
-    <div class="cols-md-auto">
-    </div>
   </div>
   <div class="row">
-    <div class="cols-md-auto">
-      Child Orgs
-    </div>
-    <div class="cols-md-autp">
-      Team Members
-    </div>
-  </div>
-  <div class="row">
-    <div class="cols-md-auto">
-    <ul>
-      <% @org.organizations.each do |child| %>
-        <li>
-          <%= link_to(child.name, organization_path(child)) %>
-        </li>
-      <% end %>
-    </ul>
-    </div>
-    <div class="cols-d-auto">
+    <% unless @org.organizations.empty? %>
+      <div class="col">
+        <h3>Teams</h3>
+        <ul>
+          <% @org.organizations.each do |child| %>
+            <li>
+              <%= link_to(child.name, organization_path(child)) %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="col">
+      <h3>Members</h3>
       <% @org.organization_roles.each do |role| %>
         <ul>
             <li>
@@ -49,31 +29,36 @@
       <% end %>
     </div>
   </div>
+  <div>
+    <div class="row">
+      <div class="col">
+        <%= form_with url: generate_dashboards_path, model: @dashboard do |f| %>
+          <div>
+            <b><%= f.label :dashboard_template %></b><br>
+            <%= f.select :dashboard_id, Dashboard.all.collect { |d| [d.name, d.id] }, include_blank: false %>
+          </div>
+          <div>
+            <%= f.hidden_field :organization_id, :value => @org.id %>
+          </div>
+          <div>
+            <%= f.submit("Generate Dashboards") %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="container">
   <div class="row">
-    <div class="cols">
+    <div class="col">
       <h3>Metrics</h3>
     </div>
-    <div class="cols">
+    <div class="col">
       <%= link_to('Add Metrics', add_metrics_path(@org)) %>
     </div>
   </div>
   <div class="row">
-    <div class="cols">
-      <ul>
-        <% @org.metrics.each do |metric| %>
-        <li>
-          (<%= metric.period_start %>) <%= metric.metric_type.name %>: <%= metric.value %>
-        </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="cols">
+    <div class="col">
       <%= form_tag import_metrics_path, multipart: true do %>
         <div>
           <%= file_field_tag :file %>
@@ -83,3 +68,4 @@
     </div>
   </div>
 </div>
+
