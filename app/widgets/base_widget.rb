@@ -1,6 +1,11 @@
 class BaseWidget
   extend ActiveSupport::DescendantsTracker
   NAME = 'Base Widget'.freeze
+  CHART_TYPES = { 'Bar' => GoogleVisualr::Interactive::BarChart,
+                  'Area' => GoogleVisualr::Interactive::AreaChart,
+                  'Line' => GoogleVisualr::Interactive::LineChart,
+                  'Column' => GoogleVisualr::Interactive::ColumnChart,
+                  'Combo' => GoogleVisualr::Interactive::ComboChart }.freeze
   attr_reader :widget_type
 
   def initialize()

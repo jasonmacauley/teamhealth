@@ -45,7 +45,7 @@
       </div>
       <% data['response_rate'].keys.sort.each do |month| %>
         <div class="col">
-          <%= data['response_rate'][month] %>%
+          <%= data['response_rate'][month].round(1) %>%
         </div>
       <% end %>
     </div>

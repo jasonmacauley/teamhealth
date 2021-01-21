@@ -1,0 +1,4 @@
+<div>
+  <%= f.label config.label.to_sym %><br>
+  <%= f.select config.label.to_sym, BaseWidget::CHART_TYPES.keys, include_blank: false, selected: id %>
+</div>

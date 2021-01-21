@@ -9,14 +9,13 @@ class TeamQuantitativeChartWidget < BaseWidget
     org = Organization.find(options['organization_id'][0])
     results = collect_metrics(options, org)
     data_table = quantitative_data_table(results)
-
-    build_chart(org, data_table)
+    build_chart(org, data_table, options['chart_type'][0])
   end
 
   private
 
-  def build_chart(org, data_table)
+  def build_chart(org, data_table, chart_type)
     option = { width: 1200, height: 600, title: 'Quantitative Metrics for ' + org.name }
-    GoogleVisualr::Interactive::AreaChart.new(data_table, option)
+    CHART_TYPES[chart_type].new(data_table, option)
   end
 end
