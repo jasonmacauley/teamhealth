@@ -53,6 +53,43 @@
     <div class="col">
       <h3>Metrics</h3>
     </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= form_with url: update_organization_metric_types_path, model: @org do |f| %>
+        <div>
+          Selected Tracking Metrics<br>
+          <%= f.select(:metric_type_ids, MetricType.all.collect { |t| [t.name, t.id] }, {  }, { :multiple => true, :size => 5 } ) %>
+        </div>
+        <div>
+          <%= f.hidden_field :organization_id, :value => @org.id %>
+        </div>
+        <div>
+          <%= f.submit('Track') %>
+        </div>
+      <% end %>
+    </div>
+    <% unless @org.metric_types.empty? %>
+      <div class="col">
+        <%= form_with url: set_organization_metric_defaults_path, model: @org do |f| %>
+          <% @org.metric_types.each do |metric| %>
+            <% metric.target_types.select { |t| t.method =~ /manual/i }.each do |type| %>
+              <% org_metric_type = OrganizationMetricType.where(organization_id: @org.id, metric_type_id: metric.id)[0] %>
+              <%= metric.name %> Default<br>
+              <%= f.text_field(org_metric_type.id.to_s.to_sym, :value => org_metric_type.value) %><br>
+            <% end %>
+          <% end %>
+          <div>
+            <%= f.hidden_field :organization_id, :value => @org.id %>
+          </div>
+          <div>
+            <%= f.submit('Set Defaults') %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="row">
     <div class="col">
       <%= link_to('Add Metrics', add_metrics_path(@org)) %>
     </div>

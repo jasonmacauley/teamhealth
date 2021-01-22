@@ -97,6 +97,8 @@ Rails.application.routes.draw do
   get 'organization/add/:id' => 'organization#new', as: :add_organization
   post 'organizations' => 'organization#update'
   patch 'organizations' => 'organization#update'
+  patch 'organization/update_metric_types' => 'organization#update_metric_types', as: :update_organization_metric_types
+  patch 'organization/set_organization_metric_defaults' => 'organization#set_organization_metric_defaults', as: :set_organization_metric_defaults
   get 'organization/new'
   get 'organization/delete'
   get 'organization_type/index'

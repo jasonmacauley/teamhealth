@@ -12,6 +12,10 @@
     <%= f.select :aggregation_method, ["Sum", "Average"], include_blank: false, selected: @metric_type.aggregation_method %>
   </div>
   <div>
+    <%= f.label :target_types %><br>
+    <%= f.select(:target_type_ids, TargetType.all.collect { |t| [t.name, t.id] }, {  }, { :multiple => true, :size => 5 } ) %>
+  </div>
+  <div>
     <%= f.label :description %><br>
     <%= f.text_area(:description, :value => @metric_type.description) %>
   </div>

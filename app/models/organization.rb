@@ -5,6 +5,9 @@ class Organization < ApplicationRecord
   has_many :organization_roles
   has_many :team_members, through: :organization_roles
   has_many :metrics
+  has_many :targets
+  has_many :organization_metric_types
+  has_many :metric_types, through: :organization_metric_types
 
   def all_org_members
     members = []

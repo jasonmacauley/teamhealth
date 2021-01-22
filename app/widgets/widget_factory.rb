@@ -40,6 +40,5 @@ class WidgetFactory
     Dir.glob('*.rb').each do |file|
       require file.split('.')[0]
     end
-
   end
 end

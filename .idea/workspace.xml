@@ -2,9 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b6e0052-668d-4cd2-abeb-1ca630a0bacc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/targets/base_target.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/targets/pr_per_day_per_person.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/targets/static_number_target.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/metric_type_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/metric_type_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/metrics_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/metrics_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/organization_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/organization_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/metric.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/metric.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/metric_type.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/metric_type.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/organization.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/organization.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/metric_type/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/metric_type/_form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/metric_type/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/metric_type/index.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/metrics/add.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/metrics/add.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/organization/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/organization/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widgets/team_qualitative_chart_widget.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/widgets/team_qualitative_chart_widget.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widgets/team_quantitative_chart_widget.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/widgets/team_quantitative_chart_widget.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widgets/widget_factory.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/widgets/widget_factory.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,19 +32,91 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/organization/show.html.erb">
+        <entry file="file://$PROJECT_DIR$/app/views/metrics/add.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="69" selection-start-line="69" selection-end-line="69" />
+            <state relative-caret-position="270">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/metrics/add.html.erb">
+        <entry file="file://$PROJECT_DIR$/app/views/organization/show.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="492">
+              <caret line="88" column="6" selection-start-line="88" selection-start-column="6" selection-end-line="88" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/metric_type/_form.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="59" selection-start-line="2" selection-start-column="4" selection-end-line="3" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/organization_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="319">
+              <caret line="29" column="36" lean-forward="true" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/metric_type_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/routes.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="167">
+              <caret line="83" column="40" lean-forward="true" selection-start-line="83" selection-start-column="40" selection-end-line="83" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/organization.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
-              <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+              <caret line="9" column="61" selection-start-line="9" selection-start-column="61" selection-end-line="9" selection-end-column="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/target.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/target_type.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/targets/pr_per_day_per_person.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="43">
+              <caret line="3" column="47" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -40,8 +129,8 @@
         <option value="JavaScript File" />
         <option value="Ruby File" />
         <option value="Ruby Module" />
-        <option value="Ruby Class" />
         <option value="Erb File" />
+        <option value="Ruby Class" />
       </list>
     </option>
   </component>
@@ -51,30 +140,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/models/organization_team_member.rb" />
-        <option value="$PROJECT_DIR$/app/views/widget_type/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/widget_type_controller.rb" />
-        <option value="$PROJECT_DIR$/app/models/question.rb" />
-        <option value="$PROJECT_DIR$/app/models/organization.rb" />
-        <option value="$PROJECT_DIR$/app/helpers/application_helper.rb" />
-        <option value="$PROJECT_DIR$/app/views/widget/show.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/widget/_form.html.erb" />
-        <option value="$PROJECT_DIR$/app/widgets/team_qualitative_chart_widget.rb" />
-        <option value="$PROJECT_DIR$/app/views/application/_questionnaire_select.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/questionnaire/display.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/application/_team_select.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/application/_metrics_select.erb" />
-        <option value="$PROJECT_DIR$/db/migrate/20210119142201_add_aggregation_method_to_metric_type.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/metric_type_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/metric_type/_form.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/widget/preview.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/widget_controller.rb" />
-        <option value="$PROJECT_DIR$/app/widgets/team_qualitative_table_widget.rb" />
         <option value="$PROJECT_DIR$/app/widgets/team_quantitative_table_widget.rb" />
         <option value="$PROJECT_DIR$/app/views/application/_chart_widget.html.erb" />
         <option value="$PROJECT_DIR$/app/views/application/_table_widget.html.erb" />
         <option value="$PROJECT_DIR$/app/views/application/_comments_widget.html.erb" />
-        <option value="$PROJECT_DIR$/app/widgets/widget_factory.rb" />
         <option value="$PROJECT_DIR$/app/widgets/auto_j.rb" />
         <option value="$PROJECT_DIR$/app/models/widget_type.rb" />
         <option value="$PROJECT_DIR$/app/models/widget_config_type.rb" />
@@ -85,7 +154,6 @@
         <option value="$PROJECT_DIR$/app/models/widget.rb" />
         <option value="$PROJECT_DIR$/app/models/dashboard.rb" />
         <option value="$PROJECT_DIR$/app/views/dashboard/show.html.erb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/views/dashboard/index.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/dashboard_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/dashboard/_widget_container.html.erb" />
@@ -98,16 +166,37 @@
         <option value="$PROJECT_DIR$/app/views/application/_team_member_widget.html.erb" />
         <option value="$PROJECT_DIR$/app/widgets/base_widget.rb" />
         <option value="$PROJECT_DIR$/app/views/application/_chart_select.html.erb" />
-        <option value="$PROJECT_DIR$/app/widgets/team_quantitative_chart_widget.rb" />
         <option value="$PROJECT_DIR$/app/views/application/_qualitative_table_widget.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/organization/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/widgets/team_quantitative_chart_widget.rb" />
+        <option value="$PROJECT_DIR$/app/widgets/team_qualitative_chart_widget.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20210122170012_create_targets.rb" />
+        <option value="$PROJECT_DIR$/app/models/metric_type_target_type.rb" />
+        <option value="$PROJECT_DIR$/app/models/metric.rb" />
+        <option value="$PROJECT_DIR$/app/widgets/widget_factory.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/metric_type_controller.rb" />
+        <option value="$PROJECT_DIR$/app/targets/base_target.rb" />
+        <option value="$PROJECT_DIR$/app/targets/static_number_target.rb" />
+        <option value="$PROJECT_DIR$/app/views/metric_type/index.html.erb" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/app/controllers/metrics_controller.rb" />
+        <option value="$PROJECT_DIR$/app/models/organization_metric_type.rb" />
+        <option value="$PROJECT_DIR$/app/models/metric_type.rb" />
+        <option value="$PROJECT_DIR$/app/models/organization.rb" />
         <option value="$PROJECT_DIR$/app/views/metrics/add.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/metric_type/_form.html.erb" />
+        <option value="$PROJECT_DIR$/app/targets/pr_per_day_per_person.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20210122204739_add_value_to_org_metric_type.rb" />
+        <option value="$PROJECT_DIR$/app/models/target.rb" />
+        <option value="$PROJECT_DIR$/app/models/target_type.rb" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/organization_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/organization/show.html.erb" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1893" />
-    <option name="y" value="51" />
+    <option name="x" value="1817" />
+    <option name="y" value="37" />
     <option name="width" value="1681" />
     <option name="height" value="1027" />
   </component>
@@ -150,19 +239,7 @@
               <item name="teamhealth" type="b2602c69:ProjectViewProjectNode" />
               <item name="teamhealth" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="calculators" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="teamhealth" type="b2602c69:ProjectViewProjectNode" />
-              <item name="teamhealth" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="teamhealth" type="b2602c69:ProjectViewProjectNode" />
-              <item name="teamhealth" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="helpers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="teamhealth" type="b2602c69:ProjectViewProjectNode" />
@@ -182,6 +259,12 @@
               <item name="teamhealth" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teamhealth" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teamhealth" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="targets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="teamhealth" type="b2602c69:ProjectViewProjectNode" />
@@ -338,23 +421,6 @@
               <item name="teamhealth" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="teamhealth" type="b2602c69:ProjectViewProjectNode" />
-              <item name="teamhealth" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="environments" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="teamhealth" type="b2602c69:ProjectViewProjectNode" />
-              <item name="teamhealth" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="initializers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="teamhealth" type="b2602c69:ProjectViewProjectNode" />
-              <item name="teamhealth" type="462c0819:PsiDirectoryNode" />
-              <item name="db" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -508,15 +574,16 @@
       <workItem from="1608645445111" duration="166922000" />
       <workItem from="1610634734669" duration="19281000" />
       <workItem from="1610664543268" duration="916000" />
-      <workItem from="1610665495019" duration="80372000" />
+      <workItem from="1610665495019" duration="95694000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="267491000" />
+    <option name="totallyTimeSpent" value="282813000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1893" y="51" width="1681" height="1027" extended-state="0" />
+    <frame x="1817" y="37" width="1681" height="1027" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20988408" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -566,115 +633,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/application/_questionnaire_select.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="135" lean-forward="true" selection-start-line="3" selection-start-column="2" selection-end-line="4" selection-end-column="135" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/dashboard/new.html.erb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20210119142201_add_aggregation_method_to_metric_type.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="58" selection-start-line="2" selection-start-column="58" selection-end-line="2" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/metric_type.rb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/metric_type_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="47" lean-forward="true" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/metric_type/_form.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="9" lean-forward="true" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/questionnaire/display.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="88" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/questionnaire/_form.html.erb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/widget/preview.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/widgets/team_quantitative_table_widget.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="5" lean-forward="true" selection-start-line="1" selection-start-column="2" selection-end-line="14" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/application/_chart_widget.html.erb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/dashboard.scss">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/widgets/widget_factory.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/widget_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="24" column="49" lean-forward="true" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/application_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="5" lean-forward="true" selection-start-line="10" selection-start-column="2" selection-end-line="12" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/home_helper.rb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/widgets/auto_j.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/widget_type.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/widget_config_type.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/widget_config.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -703,13 +661,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/widget.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/dashboard.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -721,13 +672,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="15" lean-forward="true" selection-start-line="4" selection-start-column="6" selection-end-line="15" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="23" column="79" lean-forward="true" selection-start-line="23" selection-start-column="79" selection-end-line="23" selection-end-column="79" />
         </state>
       </provider>
     </entry>
@@ -749,20 +693,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/organization.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/widgets/team_qualitative_chart_widget.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
@@ -808,24 +738,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/widget_type/_form.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/application/_qualitative_table_widget.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="407">
           <caret line="47" column="51" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/widgets/team_quantitative_chart_widget.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
@@ -847,13 +763,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/widgets/base_widget.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -885,17 +794,202 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/organization/show.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/widgets/team_quantitative_chart_widget.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="69" selection-start-line="69" selection-end-line="69" />
+        <state relative-caret-position="300">
+          <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20210122170012_create_targets.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20210122165817_create_target_types.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/metric_type_target_type.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/widgets/team_qualitative_chart_widget.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="5" lean-forward="true" selection-start-line="1" selection-start-column="2" selection-end-line="13" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/widget.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="5" lean-forward="true" selection-start-line="5" selection-start-column="2" selection-end-line="12" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/widget_type/_form.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" selection-start-line="13" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/widgets/widget_factory.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="21" lean-forward="true" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/widgets/base_widget.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="26" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/targets/base_target.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="90">
+            <caret line="6" column="75" selection-start-line="6" selection-start-column="75" selection-end-line="6" selection-end-column="75" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/metric_type/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="7" lean-forward="true" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/targets/static_number_target.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="3" column="39" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/metrics_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/metric.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/organization_metric_type.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/metric_type.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="37" lean-forward="true" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/organization.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="61" selection-start-line="9" selection-start-column="61" selection-end-line="9" selection-end-column="61" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/metrics/add.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+        <state relative-caret-position="270">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/targets/pr_per_day_per_person.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="43">
+          <caret line="3" column="47" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/metric_type/_form.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="59" selection-start-line="2" selection-start-column="4" selection-end-line="3" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20210122204739_add_value_to_org_metric_type.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="59" selection-start-line="2" selection-start-column="59" selection-end-line="2" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/metric_type_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/target.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/target_type.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="83" column="40" lean-forward="true" selection-start-line="83" selection-start-column="40" selection-end-line="83" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/organization_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="29" column="36" lean-forward="true" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/organization/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="492">
+          <caret line="88" column="6" selection-start-line="88" selection-start-column="6" selection-end-line="88" selection-end-column="6" />
         </state>
       </provider>
     </entry>

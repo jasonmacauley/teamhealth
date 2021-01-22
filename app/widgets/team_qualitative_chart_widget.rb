@@ -17,7 +17,10 @@ class TeamQualitativeChartWidget < BaseWidget
 
   def build_chart(org, questionnaire, response_data)
     data_table = questionnaire_data_table(questionnaire, response_data)
-    option = { width: 1200, height: 600, title: 'Qualitative Metrics for ' + org.name }
+    option = { width: 1200,
+               height: 600,
+               title: 'Qualitative Metrics for ' + org.name,
+               legend: 'top' }
     GoogleVisualr::Interactive::ColumnChart.new(data_table, option)
   end
 end

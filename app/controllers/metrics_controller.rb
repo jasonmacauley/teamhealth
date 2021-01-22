@@ -21,8 +21,6 @@ class MetricsController < ApplicationController
     throughput_type = MetricType.find_by_name("throughput")
     efficiency_type = MetricType.find_by_name("efficiency")
     success_rate_type = MetricType.find_by_name("pr success rate")
-    throughput_target_type = MetricType.find_by_name("throughput target")
-    success_rate_target_type = MetricType.find_by_name("success rate target")
 
     CSV.foreach(file.path, headers: true) do |row|
       date_str = row[0].split('/')
@@ -34,8 +32,6 @@ class MetricsController < ApplicationController
       create_metric(efficiency_type, row[3], team.id, period_end, period_start)
       create_metric(success_rate_type, row[4], team.id, period_end, period_start)
       create_metric(throughput_type, row[5], team.id, period_end, period_start)
-      create_metric(throughput_target_type, row[6], team.id, period_end, period_start)
-      create_metric(success_rate_target_type, 80, team.id, period_end, period_start)
     end
     redirect_to(organization_path(Organization.find_by_name("SimplyBusiness")))
   end

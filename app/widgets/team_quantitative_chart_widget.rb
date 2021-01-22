@@ -15,7 +15,10 @@ class TeamQuantitativeChartWidget < BaseWidget
   private
 
   def build_chart(org, data_table, chart_type)
-    option = { width: 1200, height: 600, title: 'Quantitative Metrics for ' + org.name }
+    option = { width: 1200,
+               height: 600,
+               title: 'Quantitative Metrics for ' + org.name,
+               legend: 'top' }
     CHART_TYPES[chart_type].new(data_table, option)
   end
 end

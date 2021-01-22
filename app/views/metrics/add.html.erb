@@ -11,11 +11,11 @@
         <%= f.select(:month, Date::MONTHNAMES.each_with_index { |m, i| [m, i] }) %>
       </div>
     </div>
-    <% @metrics.each do |metric| %>
+    <% @team.metric_types.each do |metric| %>
       <div class="row">
         <div class="col">
           <%= metric.name %><br>
-          <%= f.send(:text_field, metric.name) %>
+          <%= f.send(:text_field, metric.name) %><br>
         </div>
       </div>
     <% end %>
