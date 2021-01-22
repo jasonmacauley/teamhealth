@@ -107,6 +107,13 @@ class BaseWidget
     str.to_i.to_s == str
   end
 
+  protected
+
+  def error_occured(exception)
+    render json: { error: exception.message }.to_json, status: 500
+    return
+  end
+
   private
 
   def aggregate_metric(metric, month, results)
