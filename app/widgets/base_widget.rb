@@ -127,7 +127,11 @@ class BaseWidget
     org.organizations.each do |o|
       results = collect_metrics_by_org(metric_type_id, o, results)
     end
-    metric_type = MetricType.find(metric_type_id)
+    begin
+      metric_type = MetricType.find(metric_type_id)
+    rescue
+      return {}
+    end
     Metric.where(organization_id: org.id, metric_type_id: metric_type_id).each do |metric|
       results[metric.period_start] = {} if results[metric.period_start].nil?
       results[metric.period_start][metric_type.name] = { 'values' => [] } if results[metric.period_start][metric_type.name].nil?

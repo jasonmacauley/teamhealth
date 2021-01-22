@@ -7,11 +7,16 @@
       <%= link_to("Preview", preview_widget_path(@widget)) %> | <%= link_to("Edit", edit_widget_path(@widget)) %>
       <ul>
         <% @widget.widget_configs.each do |config| %>
+          <% next if config.value.empty? %>
           <li>
             <%= config.dashboard_widget_config_type.name %> - <%= config.value %>
           </li>
         <% end %>
       </ul>
+    </div>
+    <div class="container">
+      <h3>Preview</h3>
+      <%= render(@widget.widget_type.partial, widget: @widget) %>
     </div>
   </div>
 </div>
