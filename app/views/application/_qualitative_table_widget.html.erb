@@ -2,6 +2,7 @@
 <div id="<%= div_id %>">
   <% response_data = widget.generate %>
   <% response_data.each do |data| %>
+    <% next if data['response_count'].nil? %>
     <% col_count = data['response_count'].keys.count + 1 %>
     <div class="row row-cols-<%= col_count %> align-items-start">
       <div class="col-float">

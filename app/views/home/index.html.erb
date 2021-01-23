@@ -1,2 +1,18 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Team Heath: Welcome <%= @team_member.first_name %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h3>Dashboards</h3>
+      <%= link_to('Create Dashboard', dashboard_new_path) %>
+      <ul>
+        <% @dashboards.each do |board| %>
+        <li><%= link_to(board.name, show_dashboard_path(board)) %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

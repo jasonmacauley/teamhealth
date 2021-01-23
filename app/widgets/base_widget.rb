@@ -40,6 +40,7 @@ class BaseWidget
       questions.push(question) unless response_data.keys.select {|q| q == question.id}.empty?
     end
     data_table = GoogleVisualr::DataTable.new
+    return data_table if response_data.empty?
     data_table.new_column('string', 'Metric')
     response_data[response_data.keys[0]].keys.sort.each do |month|
       data_table.new_column('number', month)
@@ -76,6 +77,7 @@ class BaseWidget
 
   def quantitative_data_table(results)
     data_table = GoogleVisualr::DataTable.new
+    return data_table if results.empty?
     data_table.new_column('date', 'month')
     results[results.keys[0]].keys.sort.each do |metric|
       data_table.new_column('number', metric)
