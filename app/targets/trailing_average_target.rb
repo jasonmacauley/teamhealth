@@ -1,7 +1,7 @@
-class PrPerDayPerPerson < BaseTarget
-  NAME = 'PR Per Person Per Day Target'.freeze
+class TrailingAverageTarget < BaseTarget
+  NAME = 'Trailing Average Target'.freeze
   METHOD = 'calculated'.freeze
-  LABEL = 'pr_per_person_per_day_target'.freeze
+  LABEL = 'trailing_average_target'.freeze
   AGGREGATION_METHOD = 'sum'.freeze
 
   def initialize
@@ -16,7 +16,7 @@ class PrPerDayPerPerson < BaseTarget
                           period_end: period_end)[0]
     return target unless target.nil?
 
-    target_value = organization.all_org_members.count * business_days_between(period_start, period_end)
+    target_value = trailing_average(metric)
     target = Target.create(organization_id: organization.id,
                            target_type_id: @target_type.id,
                            name: target_name(metric),
@@ -48,8 +48,21 @@ class PrPerDayPerPerson < BaseTarget
     business_days
   end
 
+  def trailing_average(metric)
+    metrics = Metric.select(:value).where(['metric_type_id = ? AND organization_id = ? AND period_end <= ?',
+                           metric.metric_type.id, metric.organization.id, metric.period_start])
+    return metric.value * 1.05 if metrics.empty?
+    values = []
+    metrics.each do |m|
+      values.push(m.value)
+    end
+
+    trailing_values = values.pop(3)
+    (trailing_values.sum(0.0) / trailing_values.count) * 1.05
+  end
+
   def target_name(metric)
-    metric.metric_type.name + ' By Capacity Target'
+    metric.metric_type.name + ' Trailing Average'
   end
 
   def create_target_type

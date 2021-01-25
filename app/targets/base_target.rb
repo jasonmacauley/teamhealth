@@ -40,12 +40,4 @@ class BaseTarget
   def target_name(metric)
     metric.metric_type.name + ' Target'
   end
-
-  def create_target_type
-    type = TargetType.find_by_name(NAME)
-    return type unless type.nil?
-
-    type = TargetType.create(name: NAME, implementation: self.class.to_s)
-    type
-  end
 end

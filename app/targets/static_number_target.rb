@@ -34,8 +34,18 @@ class StaticNumberTarget < BaseTarget
     AGGREGATION_METHOD
   end
 
-
   def aggregate(values)
     aggregate_by_average(values)
   end
+
+  private
+
+  def create_target_type
+    type = TargetType.where(name: NAME)[0]
+    return type unless type.nil?
+
+    type = TargetType.create(name: NAME, implementation: self.class.to_s)
+    type
+  end
+
 end

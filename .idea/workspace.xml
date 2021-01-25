@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b6e0052-668d-4cd2-abeb-1ca630a0bacc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/models/metric.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/metric.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/metric_type.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/metric_type.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/target.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/target.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/target_type.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/target_type.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/targets/trailing_average_target.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/targets/base_target.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/targets/base_target.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/targets/pr_per_day_per_person.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/targets/pr_per_day_per_person.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/targets/static_number_target.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/targets/static_number_target.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/application/_table_widget.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/application/_table_widget.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/widgets/base_widget.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/widgets/base_widget.rb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,26 +46,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/targets/base_target.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" selection-start-line="27" selection-end-line="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/targets/pr_per_day_per_person.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="36" selection-start-line="36" selection-end-line="36" />
+            <state relative-caret-position="530">
+              <caret line="42" selection-start-line="42" selection-end-line="42" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/targets/pr_per_day_per_person.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/targets/static_number_target.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+            <state relative-caret-position="415">
+              <caret line="43" selection-start-line="43" selection-end-line="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/targets/trailing_average_target.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="295">
+              <caret line="60" column="20" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -111,7 +116,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/models/widget_type.rb" />
         <option value="$PROJECT_DIR$/app/models/widget_config_type.rb" />
         <option value="$PROJECT_DIR$/app/models/widget_config.rb" />
         <option value="$PROJECT_DIR$/app/models/dashboard_widget.rb" />
@@ -160,8 +164,9 @@
         <option value="$PROJECT_DIR$/app/widgets/base_widget.rb" />
         <option value="$PROJECT_DIR$/app/views/application/_table_widget.html.erb" />
         <option value="$PROJECT_DIR$/app/targets/base_target.rb" />
-        <option value="$PROJECT_DIR$/app/targets/pr_per_day_per_person.rb" />
         <option value="$PROJECT_DIR$/app/targets/static_number_target.rb" />
+        <option value="$PROJECT_DIR$/app/targets/trailing_average_target.rb" />
+        <option value="$PROJECT_DIR$/app/targets/pr_per_day_per_person.rb" />
       </list>
     </option>
   </component>
@@ -531,12 +536,12 @@
       <workItem from="1608645445111" duration="166922000" />
       <workItem from="1610634734669" duration="19281000" />
       <workItem from="1610664543268" duration="916000" />
-      <workItem from="1610665495019" duration="114245000" />
+      <workItem from="1610665495019" duration="117293000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="301364000" />
+    <option name="totallyTimeSpent" value="304412000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1817" y="37" width="1681" height="1027" extended-state="0" />
@@ -590,13 +595,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/questionnaire.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/widgets/team_comments_widget.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -917,24 +915,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/targets/static_number_target.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/targets/base_target.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="530">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/targets/trailing_average_target.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="60" column="20" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/targets/pr_per_day_per_person.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/targets/static_number_target.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+        <state relative-caret-position="352">
+          <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
         </state>
       </provider>
     </entry>
