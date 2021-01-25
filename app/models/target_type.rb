@@ -11,6 +11,25 @@ class TargetType < ApplicationRecord
     target_implementation::LABEL
   end
 
+  def generate(organization, metric, period_start, period_end)
+    target_type = target_implementation.new
+    target_type.generate(organization, metric, period_start, period_end)
+  end
+
+  def aggregate(values)
+    target_type = target_implementation.new
+    target_type.aggregate(values)
+  end
+
+  def aggregation_method
+    target_type = target_implementation.new
+    target_type.aggregation_method
+  end
+
+  def type
+    self
+  end
+
   private
 
   def target_implementation

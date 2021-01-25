@@ -12,15 +12,14 @@
   </div>
   <% key = data.keys[0] %>
   <% unless data[key].nil? %>
-    <% data[key].keys.sort.each do |metric| %>
-      <% type = MetricType.find_by_name(metric) %>
+    <% data[key].keys.sort { |a,b| a <=> b }.each do |metric| %>
       <div class="row row-cols-<%= col_count %>">
         <div class="col">
           <%= metric %>
         </div>
         <% data.keys.sort.each do |month| %>
           <div class="col">
-            <%= type.aggregation_method =~ /sum/i ? data[month][metric]['values'][0] : data[month][metric]['values'][0].to_s + '%' %>
+            <%= data[month][metric]['type'].aggregation_method =~ /sum/i ? data[month][metric]['values'][0].to_s : data[month][metric]['values'][0].to_s + '%' %>
           </div>
         <% end %>
       </div>

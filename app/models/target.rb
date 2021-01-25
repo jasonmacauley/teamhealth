@@ -2,9 +2,8 @@ class Target < ApplicationRecord
   belongs_to :target_type
   belongs_to :organization
 
-  def generate(organization, period_start, period_end)
-    target_type = target_implementation.new
-    target_type.generate(organization, period_start, period_end)
+  def type
+    target_type
   end
 
   private
