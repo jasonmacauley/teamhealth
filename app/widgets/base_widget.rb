@@ -79,13 +79,13 @@ class BaseWidget
     data_table = GoogleVisualr::DataTable.new
     return data_table if results.empty?
     data_table.new_column('date', 'month')
-    results[results.keys[0]].keys.sort { |a, b| a <=> b }.each do |metric|
+    results[results.keys[0]].keys.sort.each do |metric|
       data_table.new_column('number', metric)
     end
     rows = []
     results.keys.sort.each do |month|
       row = [month]
-      results[month].keys.sort { |a, b| a <=> b }.each do |metric|
+      results[month].keys.sort.each do |metric|
         stat = aggregate_metric(metric, month, results)
         row.push(stat)
       end
@@ -97,16 +97,16 @@ class BaseWidget
 
   def collect_metrics(options, org)
     results = {}
-    options['metric_type_ids'].each do |metric_type_id|
-      next unless int?(metric_type_id)
-
-      collect_metrics_by_org(metric_type_id, org, results)
-    end
+    results = drill_down(options, org, results)
     results
   end
 
   def int?(str)
     str.to_i.to_s == str
+  end
+
+  def aggregate_metric(metric, month, results)
+    results[month][metric]['type'].aggregate(results[month][metric]['values'])
   end
 
   protected
@@ -118,33 +118,38 @@ class BaseWidget
 
   private
 
-  def aggregate_metric(metric, month, results)
-    results[month][metric]['type'].aggregate(results[month][metric]['values'])
+  def drill_down(options, org, results)
+    res = results
+    options['metric_type_ids'].each do |metric_type_id|
+      next unless int?(metric_type_id)
+
+      collect_metrics_by_org(metric_type_id, org, res)
+    end
+    org.organizations.each do |o|
+      res = drill_down(options, o, res)
+    end
+    res
   end
 
   def collect_metrics_by_org(metric_type_id, org, results)
-    org.organizations.each do |o|
-      results = collect_metrics_by_org(metric_type_id, o, results)
-    end
-    begin
-      metric_type = MetricType.find(metric_type_id)
-    rescue
-      return {}
-    end
+    res = results
     Metric.where(organization_id: org.id, metric_type_id: metric_type_id).each do |metric|
-      results[metric.period_start] = {} if results[metric.period_start].nil?
-      results[metric.period_start][metric_type.name] = { 'values' => [], 'type' => metric_type } if results[metric.period_start][metric_type].nil?
-      results[metric.period_start][metric_type.name]['values'].push(metric.value)
+      metric_type = metric.metric_type
+      next if metric_type.nil?
+      month = metric.period_start
+      res[month] = {} if res[month].nil?
+      res[month][metric_type.name] = { 'values' => [], 'type' => metric_type } if res[month][metric_type.name].nil?
+      res[month][metric_type.name]['values'].push(metric.value)
       metric_type.target_types.each do |target_type|
         target = target_type.generate(org,
                                       metric,
                                       metric.period_start,
                                       metric.period_end)
 
-        results[metric.period_start][target.name] = { 'values' => [], 'type' => target_type } if results[metric.period_start][target.name].nil?
-        results[metric.period_start][target.name]['values'].push(target.value)
+        res[month][target.name] = { 'values' => [], 'type' => target_type } if res[month][target.name].nil?
+        res[month][target.name]['values'].push(target.value)
       end
     end
-    results
+    res
   end
 end

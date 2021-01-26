@@ -19,11 +19,11 @@ class BaseTarget
   end
 
   def aggregate_by_sum(values)
-    values.sum(0.0)
+    values.sum
   end
 
   def aggregate_by_average(values)
-    values.sum(0.0) / values.count
+    (values.sum(0.0) / values.count).round(1)
   end
 
   private

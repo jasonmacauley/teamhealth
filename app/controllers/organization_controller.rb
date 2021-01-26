@@ -28,7 +28,7 @@ class OrganizationController < ApplicationController
     metric_ids = params[:organization][:metric_type_ids]
     metric_ids.each do |id|
       next unless id.to_i.to_s == id
-      next unless @org.metric_types.select { |t| t.id == id }.empty?
+      next if @org.metric_type_ids.include? id.to_i
 
       @org.metric_types.push(MetricType.find(id))
     end

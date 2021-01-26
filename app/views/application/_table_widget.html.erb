@@ -19,7 +19,8 @@
         </div>
         <% data.keys.sort.each do |month| %>
           <div class="col">
-            <%= data[month][metric]['type'].aggregation_method =~ /sum/i ? data[month][metric]['values'][0].to_s : data[month][metric]['values'][0].to_s + '%' %>
+            <% stat = data[month][metric]['type'].aggregate(data[month][metric]['values']) %>
+            <%= data[month][metric]['type'].aggregation_method =~ /sum/i ? stat.to_s : stat.to_s + '%' %>
           </div>
         <% end %>
       </div>

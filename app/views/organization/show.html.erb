@@ -53,6 +53,9 @@
     <div class="col">
       <h3>Metrics</h3>
     </div>
+    <div class="col">
+      <h3>Targets</h3>
+    </div>
   </div>
   <div class="row">
     <div class="col">
@@ -72,13 +75,25 @@
     <% unless @org.metric_types.empty? %>
       <div class="col">
         <%= form_with url: set_organization_metric_defaults_path, model: @org do |f| %>
-          <% @org.metric_types.each do |metric| %>
-            <% metric.target_types.select { |t| t.method =~ /manual/i }.each do |type| %>
-              <% org_metric_type = OrganizationMetricType.where(organization_id: @org.id, metric_type_id: metric.id)[0] %>
-              <%= metric.name %> Default<br>
-              <%= f.text_field(org_metric_type.id.to_s.to_sym, :value => org_metric_type.value) %><br>
+          <ul>
+            <% @org.metric_types.each do |metric| %>
+              <li><b><%= metric.name %></b></li>
+              <ul>
+                <% metric.target_types.each do |type| %>
+                  <% org_metric_type = OrganizationMetricType.where(organization_id: @org.id, metric_type_id: metric.id)[0] %>
+                  <li>
+                    <%= type.name %><br>
+                    <% if type.method =~ /manual/i %>
+                      <%= f.text_field(org_metric_type.id.to_s.to_sym, :value => org_metric_type.value) %>
+                    <% else %>
+                      <i>Calculated</i>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
             <% end %>
-          <% end %>
+          </ul>
+
           <div>
             <%= f.hidden_field :organization_id, :value => @org.id %>
           </div>

@@ -6,7 +6,7 @@ class MetricType < ApplicationRecord
   has_many :organizations, through: :organization_metric_types
 
   def aggregate(values)
-    return values.sum(0.0) / values.count if aggregation_method =~ /average/i
+    return (values.sum(0.0) / values.count).round(1) if aggregation_method =~ /average/i
 
     values.sum(0.0)
   end

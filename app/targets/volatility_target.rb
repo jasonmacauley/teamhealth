@@ -1,8 +1,8 @@
-class TrailingAverageTarget < BaseTarget
-  NAME = 'Trailing Average Target'.freeze
+class VolatilityTarget < BaseTarget
+  NAME = 'Volatility'.freeze
   METHOD = 'calculated'.freeze
-  LABEL = 'trailing_average_target'.freeze
-  AGGREGATION_METHOD = 'sum'.freeze
+  LABEL = 'volatility'.freeze
+  AGGREGATION_METHOD = 'average'.freeze
 
   def initialize
     @target_type = create_target_type
@@ -16,7 +16,7 @@ class TrailingAverageTarget < BaseTarget
                           period_end: period_end)[0]
     return target unless target.nil?
 
-    target_value = trailing_average(metric)
+    target_value = volatility(metric)
     target = Target.create(organization_id: organization.id,
                            target_type_id: @target_type.id,
                            name: target_name(metric),
@@ -27,7 +27,7 @@ class TrailingAverageTarget < BaseTarget
   end
 
   def aggregate(values)
-    aggregate_by_sum(values)
+    aggregate_by_average(values)
   end
 
 
@@ -48,17 +48,12 @@ class TrailingAverageTarget < BaseTarget
     business_days
   end
 
-  def trailing_average(metric)
-    metrics = Metric.order(period_start: :asc).select(:value).where(['metric_type_id = ? AND organization_id = ? AND period_end < ?',
-                           metric.metric_type.id, metric.organization.id, metric.period_start])
-    return metric.value * 1.05 if metrics.empty?
-    values = []
-    metrics.each do |m|
-      values.push(m.value)
-    end
-
-    trailing_values = values.pop(3)
-    (trailing_values.sum(0.0) / trailing_values.count) * 1.05
+  def volatility(metric)
+    metrics = Metric.order(period_start: :asc).select(:value)
+                    .where(['metric_type_id = ? AND organization_id = ? AND period_end < ?',
+                            metric.metric_type.id, metric.organization.id, metric.period_start])
+    return 0 if metrics.empty?
+    metrics.last.value - metric.value
   end
 
   def target_name(metric)
