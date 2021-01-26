@@ -54,5 +54,9 @@ class OrganizationController < ApplicationController
   end
 
   def delete
+    org = Organizationfind(params[:id])
+    parent = org.organization
+    org.delete
+    redirect_to(organization_path(parent))
   end
 end

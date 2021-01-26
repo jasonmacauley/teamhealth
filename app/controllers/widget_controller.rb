@@ -14,7 +14,7 @@ class WidgetController < ApplicationController
       elsif conf.dashboard_widget_config_type.name =~ /org/i
         @config.push([conf.dashboard_widget_config_type.name, Organization.find(conf.value).name])
       elsif conf.dashboard_widget_config_type.name =~ /quest/i
-        @config.push([conf.dashboard_widget_config_type.name, Question.find(conf.value).name])
+        @config.push([conf.dashboard_widget_config_type.name, Questionnaire.find(conf.value).name])
       else
         @config.push([conf.dashboard_widget_config_type.name, conf.value])
       end
