@@ -58,7 +58,8 @@ class TrailingAverageTarget < BaseTarget
     end
 
     trailing_values = values.pop(3)
-    (trailing_values.sum(0.0) / trailing_values.count) * 1.05
+    average = (trailing_values.sum(0.0) / trailing_values.count) * 1.05
+    average
   end
 
   def target_name(metric)

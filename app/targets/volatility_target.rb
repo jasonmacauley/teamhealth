@@ -53,11 +53,13 @@ class VolatilityTarget < BaseTarget
                     .where(['metric_type_id = ? AND organization_id = ? AND period_end < ?',
                             metric.metric_type.id, metric.organization.id, metric.period_start])
     return 0 if metrics.empty?
-    (metric.value(0.0) / metrics.last.value).round(1)
+    change = (((metric.value.to_f / metrics.last.value) - 1) * 100).round(1)
+    puts 'VOLATILITY ====> ' + change.to_s
+    change
   end
 
   def target_name(metric)
-    metric.metric_type.name + ' Trailing Average'
+    metric.metric_type.name + ' Volatility'
   end
 
   def create_target_type

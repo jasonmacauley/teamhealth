@@ -19,10 +19,12 @@ class BaseTarget
   end
 
   def aggregate_by_sum(values)
+    return 0 if values.empty?
     values.sum
   end
 
   def aggregate_by_average(values)
+    return 0 if values.empty?
     (values.sum(0.0) / values.count).round(1)
   end
 
