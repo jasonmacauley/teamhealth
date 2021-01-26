@@ -5,6 +5,20 @@ class WidgetController < ApplicationController
 
   def show
     @widget = Widget.find(params[:id])
+    @config = []
+    @widget.widget_configs.each do |conf|
+      next if conf.value.empty?
+
+      if conf.dashboard_widget_config_type.name =~ /metric/i
+        @config.push([conf.dashboard_widget_config_type.name, MetricType.find(conf.value).name])
+      elsif conf.dashboard_widget_config_type.name =~ /org/i
+        @config.push([conf.dashboard_widget_config_type.name, Organization.find(conf.value).name])
+      elsif conf.dashboard_widget_config_type.name =~ /quest/i
+        @config.push([conf.dashboard_widget_config_type.name, Question.find(conf.value).name])
+      else
+        @config.push([conf.dashboard_widget_config_type.name, conf.value])
+      end
+    end
   end
 
   def new
