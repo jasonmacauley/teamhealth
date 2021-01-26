@@ -53,7 +53,7 @@ class VolatilityTarget < BaseTarget
                     .where(['metric_type_id = ? AND organization_id = ? AND period_end < ?',
                             metric.metric_type.id, metric.organization.id, metric.period_start])
     return 0 if metrics.empty?
-    metrics.last.value - metric.value
+    (metric.value(0.0) / metrics.last.value).round(1)
   end
 
   def target_name(metric)

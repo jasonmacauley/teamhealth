@@ -24,8 +24,10 @@ class ImportQualitativeController < ApplicationController
                                              row[params[:questionnaire][:title].to_i])
     month = row[params[:questionnaire][:month].to_i]
     date = month.split('/')
-    period_start = Date.new(date[1].to_i, date[0].to_i, 1)
-    period_end = Date.new(date[1].to_i, date[0].to_i, -1)
+    year = date[1].to_i
+    year += 2000 if year < 100
+    period_start = Date.new(year, date[0].to_i, 1)
+    period_end = Date.new(year, date[0].to_i, -1)
     question_hash.each do |key, question|
       response = Response.new
       response.team_member_id = team_member.id
@@ -53,8 +55,10 @@ class ImportQualitativeController < ApplicationController
 
   def add_member_to_team(member, team)
     team = Organization.find_by_name(team)
-    team.team_members.push(member)
-    team.save
+    role = Role.find_by_name('member')
+    return unless OrganizationRole.where(['organization_id = ? AND team_member_id = ? AND role_id = ?',
+                            team.id, member.id, role.id]).empty?
+    OrganizationRole.create(organization_id: team.id, team_member_id: member.id, role_id: role.id)
   end
 
   def set_user(email, member)
@@ -75,6 +79,7 @@ class ImportQualitativeController < ApplicationController
   end
 
   def set_name_from_email(email, member)
+    return if email.nil?
     email_split = email.split('@')
     name_split = email_split[0].split('.')
     member.first_name = name_split[0].capitalize

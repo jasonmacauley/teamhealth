@@ -20,16 +20,5 @@
     </div>
   </div>
     <%= f.submit "Import CSV" %>
+  <% end %>
 </div>
-<div class="container">
-  <div class="row">
-    <div class="cols">
-      Count: <%= Response.count.to_s %><br>
-      <% Response.all.each do |response| %>
-        <%= response.team_member.first_name %> <%= response.team_member.last_name %> <br>
-        * <%= response.question.text %> <%= response.value %><br>
-      <% end %>
-    </div>
-  </div>
-</div>
-<% end %>
