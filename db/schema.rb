@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_22_204739) do
+ActiveRecord::Schema.define(version: 2021_01_27_214619) do
 
   create_table "dashboard_widget_config_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
@@ -236,7 +236,7 @@ ActiveRecord::Schema.define(version: 2021_01_22_204739) do
   create_table "widget_configs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "dashboard_widget_config_type_id"
     t.integer "widget_id"
-    t.string "value"
+    t.text "value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

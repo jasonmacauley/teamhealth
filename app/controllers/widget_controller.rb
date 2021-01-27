@@ -10,15 +10,32 @@ class WidgetController < ApplicationController
       next if conf.value.empty?
 
       if conf.dashboard_widget_config_type.name =~ /metric/i
-        @config.push([conf.dashboard_widget_config_type.name, MetricType.find(conf.value).name])
+        type = MetricType.find(conf.value)
+        targets = []
+        type.target_types.map { |t| targets.push(t.name) }
+        @config.push([conf.dashboard_widget_config_type.name, type.name, targets])
       elsif conf.dashboard_widget_config_type.name =~ /org/i
-        @config.push([conf.dashboard_widget_config_type.name, Organization.find(conf.value).name])
+        @config.push([conf.dashboard_widget_config_type.name, Organization.find(conf.value).name, []])
       elsif conf.dashboard_widget_config_type.name =~ /quest/i
-        @config.push([conf.dashboard_widget_config_type.name, Questionnaire.find(conf.value).name])
+        @config.push([conf.dashboard_widget_config_type.name, Questionnaire.find(conf.value).name, []])
       else
-        @config.push([conf.dashboard_widget_config_type.name, conf.value])
+        @config.push([conf.dashboard_widget_config_type.name, conf.value, []])
       end
     end
+    @metric_types = {}
+    @widget.get_configs_by_type_name('metrics').each do |metric|
+      next if metric.value.to_i == 0
+
+      type = MetricType.find(metric.value.to_i)
+      series_type = @widget.get_series_type(type.name, type.name)
+      @metric_types[type.name] = { 'type' => type,
+                                    'series_type' => series_type,
+                                    'targets' => []}
+      type.target_types.map { |t| @metric_types[type.name]['targets'].push({ 'target' => t.name,
+                                                                             'series_type' => @widget.get_series_type(type.name, t.name),
+                                                                             'targets' => {} }) }
+    end
+    @chart_type = @widget.get_configs_by_type_name('chart type')[0]
   end
 
   def new
@@ -61,6 +78,34 @@ class WidgetController < ApplicationController
 
   def preview
     @widget = Widget.find(params[:id])
+  end
+
+  def combo_chart_config
+    @widget = Widget.find(params[:widget][:id])
+    @configs = @widget.get_configs_by_type_name('metrics').reject { |c| c.value.to_i == 0 }
+    chart_config = {}
+    @configs.each do |config|
+      type = MetricType.find(config.value.to_i)
+      chart_config[type.name] = {}
+      params_keys = params[:widget].keys.select { |k| k =~ /#{type.name}/i }
+      params_keys.each do |key|
+        value = params[:widget][key.to_sym]
+        split_key = key.split('_')
+        if split_key.count == 1
+          chart_config[type.name][split_key[0]] = value
+          next
+        end
+        chart_config[type.name][split_key[1]] = value
+      end
+    end
+    json = chart_config.to_json
+    series_type_conf = @widget.get_configs_by_type_name('Series Type')[0]
+    series_type_conf = WidgetConfig.new if series_type_conf.nil?
+    series_type_conf.value = json
+    series_type_conf.widget_id = @widget.id
+    series_type_conf.dashboard_widget_config_type = DashboardWidgetConfigType.find_by_name('Series Type')
+    series_type_conf.save
+    redirect_to(show_widget_path(@widget))
   end
 
   private

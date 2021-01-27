@@ -1,0 +1,31 @@
+<div class="col">
+  <div class="row">
+    <div class="cols-2">
+      <h3>Combo Chart Options</h3>
+    </div>
+  </div>
+  <%= form_for :widget, url: config_combo_chart_path, model: @widget do |f| %>
+    <% @metric_types.each do |metric, values| %>
+      <div class="row">
+        <div class="col">
+          <%= metric %>
+        </div>
+        <div class="col">
+          <%= render('series_type_select', metric: metric, series_type: values['series_type'], f: f) %>
+        </div>
+      </div>
+      <% values['targets'].each do |target| %>
+        <div class="row">
+          <div class="col">
+            <li><%= target['target'] %></li>
+          </div>
+          <div class="col">
+            <%= render('series_type_select', metric: (metric + '_' + target['target']), series_type: target['series_type'], f: f) %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    <%= f.hidden_field :id, :value => @widget.id %>
+    <%= f.submit('Refresh Chart') %>
+  <% end %>
+</div>

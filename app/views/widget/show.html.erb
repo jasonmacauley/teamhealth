@@ -1,28 +1,41 @@
 <div class="container">
   <div class="row">
-    <div class="cols">
+    <div class="cols-2">
       <h1><%= @widget.name %></h1>
     </div>
   </div>
   <div class="row">
     <div class="col">
       <h3>Configuration</h3>
-      <%= @widget.description %><br>
+      <%= link_to("Configure", edit_widget_path(@widget)) %><br>
+      Description: <%= @widget.description %><br>
       Type: <%= @widget.widget_type.name %><br>
-      <%= link_to("Preview", preview_widget_path(@widget)) %> | <%= link_to("Edit", edit_widget_path(@widget)) %>
       <ul>
-        <% @config.each do |name, value| %>
+        <% @config.each do |name, value, targets| %>
           <% next if value.nil? %>
           <li>
             <%= name %> - <%= value %>
+            <ul>
+              <% targets.each do |target| %>
+              <li>
+                <%= target %>
+              </li>
+              <% end %>
+            </ul>
           </li>
         <% end %>
       </ul>
     </div>
-    <div class="container">
-      <h3>Preview</h3>
-      <%= render(@widget.widget_type.partial, widget: @widget) %>
+    <% if ! @chart_type.nil? && @chart_type.value =~ /combo/i %>
+      <%= render('combo_chart_config') %>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="cols-2">
+      <div class="container">
+        <h3>Preview</h3>
+        <%= render(@widget.widget_type.partial, widget: @widget) %>
+      </div>
     </div>
   </div>
 </div>
-

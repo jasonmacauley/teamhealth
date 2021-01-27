@@ -6,6 +6,7 @@ class BaseWidget
                   'Line' => GoogleVisualr::Interactive::LineChart,
                   'Column' => GoogleVisualr::Interactive::ColumnChart,
                   'Combo' => GoogleVisualr::Interactive::ComboChart }.freeze
+  SERIES_TYPES = ['line', 'bar', 'column', 'area'].freeze
   attr_reader :widget_type
 
   def initialize()
@@ -141,7 +142,6 @@ class BaseWidget
       res[month][metric_type.name] = { 'values' => [], 'type' => metric_type } if res[month][metric_type.name].nil?
       res[month][metric_type.name]['values'].push(metric.value)
       metric_type.target_types.each do |target_type|
-        puts 'Target Type ===> ' + target_type.name
         target = target_type.generate(org,
                                       metric,
                                       metric.period_start,

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'widget/edit/:id' => 'widget#edit', as: :edit_widget
   post 'widgets' => 'widget#update'
   patch 'widgets' => 'widget#update'
+  post 'widget/combo_chart_config' => 'widget#combo_chart_config', as: :config_combo_chart
   get 'widget/delete/:id' => 'widget#delete', as: :delete_widget
   get 'widget/preview/:id' => 'widget#preview', as: :preview_widget
   get 'widget_config_type/index'

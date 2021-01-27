@@ -1,0 +1,2 @@
+<% types = Array.new(BaseWidget::SERIES_TYPES) %>
+<%= f.select metric.to_sym, types.unshift('hide'), include_blank: true, selected: series_type %>
