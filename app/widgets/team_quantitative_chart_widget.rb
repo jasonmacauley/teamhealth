@@ -30,16 +30,21 @@ class TeamQuantitativeChartWidget < BaseWidget
   def combo_chart_options(data_table, option, options)
     option[:seriesType] = 'bars'
     option[:series] = {}
-    columns = data_table.cols
+    index = -1
+    columns = data_table.cols.dup
     columns.each do |column|
       type = get_series_type(column[:label], options)
-      next if type.nil?
-      index = columns.index {|col| col[:label] =~ /#{column[:label]}/i} - 1
-      if type =~ /hide/i
-        data_table.cols.delete_at(index)
-        data_table.rows.map { |row| row.delete_at(index) }
+      if type.nil?
+        index += 1
+        next
       end
-      option[:series][index] = {:type => type}
+      if type =~ /hide/i
+        data_table.cols.delete_at(index + 1)
+        data_table.rows.map { |row| row.delete_at(index + 1) }
+        next
+      end
+      option[:series][index] = { :type => type }
+      index += 1
     end
   end
 
