@@ -31,9 +31,13 @@ class WidgetController < ApplicationController
       @metric_types[type.name] = { 'type' => type,
                                     'series_type' => series_type,
                                     'targets' => []}
-      type.target_types.map { |t| @metric_types[type.name]['targets'].push({ 'target' => t.name,
-                                                                             'series_type' => @widget.get_series_type(type.name, t.name),
-                                                                             'targets' => {} }) }
+      targets = Target.select(:name, :target_type_id).distinct.pluck(:name, :target_type_id)
+      type.target_types.each do |target_type|
+        target = targets.select { |t| t[1] == target_type.id }[0]
+        @metric_types[type.name]['targets'].push({ 'target' => target[0],
+                                                   'series_type' => @widget.get_series_type(type.name, target[0]),
+                                                   'targets' => {} })
+      end
     end
     @chart_type = @widget.get_configs_by_type_name('chart type')[0]
   end

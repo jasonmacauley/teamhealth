@@ -19,6 +19,7 @@ class Widget < ApplicationRecord
 
   def get_series_type(metric, series)
     config = get_configs_by_type_name('Series Type')[0]
+    return '' if config.nil?
     config_data = JSON.parse config.value
     config_data[metric][series]
   end

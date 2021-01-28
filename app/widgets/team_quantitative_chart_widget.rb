@@ -9,7 +9,6 @@ class TeamQuantitativeChartWidget < BaseWidget
     org = Organization.find(options['organization_id'][0])
     results = collect_metrics(options, org)
     data_table = quantitative_data_table(results)
-    puts 'OPTIONS ' + options.to_s
     build_chart(org, data_table, options)
   end
 
@@ -20,13 +19,37 @@ class TeamQuantitativeChartWidget < BaseWidget
                height: 600,
                title: 'Quantitative Metrics for ' + org.name,
                legend: 'top' }
-    if chart_type =~ /combo/i
-      widget = options['widget']
-      metrics = widget.get_configs_by_type_name('metrics')
-
-      columns = data_table.cols
-      puts 'COLUMNS ' + columns.to_s
+    if options['chart_type'][0] =~ /combo/i && !options['series_type'].nil?
+      combo_chart_options(data_table, option, options)
     end
     CHART_TYPES[options['chart_type'][0]].new(data_table, option)
+  end
+
+  private
+
+  def combo_chart_options(data_table, option, options)
+    option[:seriesType] = 'bars'
+    option[:series] = {}
+    columns = data_table.cols
+    columns.each do |column|
+      type = get_series_type(column[:label], options)
+      next if type.nil?
+      index = columns.index {|col| col[:label] =~ /#{column[:label]}/i} - 1
+      if type =~ /hide/i
+        data_table.cols.delete_at(index)
+        data_table.rows.map { |row| row.delete_at(index) }
+      end
+      option[:series][index] = {:type => type}
+    end
+  end
+
+  def get_series_type(label, options)
+    return nil if options['series_type'].nil?
+
+    json = JSON.parse options['series_type'][0]
+    json.each do |metric, conf|
+      return conf[label] unless conf[label].nil?
+    end
+    return nil
   end
 end
