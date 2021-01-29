@@ -60,9 +60,11 @@ class BaseWidget
 
   def collect_questionnaire_data(members, questionnaire)
     responses = {}
-    questionnaire.responses.each do |response|
+    member_ids = []
+    members.map { |member| member_ids.push(member.id) }
+    member_responses = Response.where('question_id IN (?) AND team_member_id IN (?)', questionnaire.question_ids, member_ids)
+    member_responses.each do |response|
       next unless int?(response.value)
-      next if members.select { |m| m.id == response.team_member_id }.empty?
 
       responses[response.question.id] = {} if responses[response.question.id].nil?
       responses[response.question.id][response.period_start] = { 'values' => [] } if responses[response.question.id][response.period_start].nil?

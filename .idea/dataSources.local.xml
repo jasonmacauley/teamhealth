@@ -11,5 +11,22 @@
       <user-name>root</user-name>
       <introspection-schemas>*:</introspection-schemas>
     </data-source>
+    <data-source name="Rails teamhealth: development" uuid="4c5358a3-538d-42f5-8441-e1c289600654">
+      <database-info product="MySQL" version="8.0.22" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-java-8.0.21 (Revision: 33f65445a1bcc544eb0120491926484da168f199)" dbms="MYSQL" exact-version="8.0.22" exact-driver-version="8.0">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <user-name>root</user-name>
+      <introspection-schemas>*:@</introspection-schemas>
+    </data-source>
+    <data-source name="Rails teamhealth: production" uuid="e89b5d1e-83b0-4131-b360-1b8a206b2917">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
+      <user-name>teamhealth</user-name>
+    </data-source>
+    <data-source name="Rails teamhealth: test" uuid="07eea51e-9d31-4bd4-833b-8343e3aa1b1b">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
+      <user-name>root</user-name>
+    </data-source>
   </component>
 </project>
