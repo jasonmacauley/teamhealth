@@ -29,11 +29,11 @@ class WidgetController < ApplicationController
       type = MetricType.find(metric.value.to_i)
       series_type = @widget.get_series_type(type.name, type.name)
       @metric_types[type.name] = { 'type' => type,
-                                    'series_type' => series_type,
-                                    'targets' => []}
-      targets = Target.select(:name, :target_type_id).distinct.pluck(:name, :target_type_id)
+                                   'series_type' => series_type,
+                                   'targets' => []}
+      targets = Target.select(:name, :target_type_id).where('target_type_id in (?)', type.target_type_ids).distinct.pluck(:name, :target_type_id)
       type.target_types.each do |target_type|
-        target = targets.select { |t| t[1] == target_type.id }[0]
+        target = targets.select { |t| t[0] =~ /#{type.name}/i }[0]
         @metric_types[type.name]['targets'].push({ 'target' => target[0],
                                                    'series_type' => @widget.get_series_type(type.name, target[0]),
                                                    'targets' => {} })
@@ -91,7 +91,7 @@ class WidgetController < ApplicationController
     @configs.each do |config|
       type = MetricType.find(config.value.to_i)
       chart_config[type.name] = {}
-      params_keys = params[:widget].keys.select { |k| k =~ /#{type.name}/i }
+      params_keys = params[:widget].keys.select { |k| k =~ /^#{type.name}/i }
       params_keys.each do |key|
         value = params[:widget][key.to_sym]
         split_key = key.split('_')

@@ -53,7 +53,7 @@ class TeamQuantitativeChartWidget < BaseWidget
 
     json = JSON.parse options['series_type'][0]
     json.each do |metric, conf|
-      return conf[label] unless conf[label].nil?
+      return json[metric][label] unless json[metric][label].nil?
     end
     return nil
   end
