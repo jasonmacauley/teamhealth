@@ -36,6 +36,7 @@ class WidgetController < ApplicationController
         target = targets.select { |t| t[1] == target_type.id }
         target = target.reject { |t| t[0] !~ /#{type.name}/i }
         target = target[0]
+        next if target.nil?
         @metric_types[type.name]['targets'].push({ 'target' => target[0],
                                                    'series_type' => @widget.get_series_type(type.name, target[0]),
                                                    'targets' => {} })
@@ -66,9 +67,21 @@ class WidgetController < ApplicationController
     @widget.description = params[:widget][:description]
     @widget.widget_type_id = @widget_type.id
     @widget.save
-    @widget.widget_configs = []
     @widget_type.dashboard_widget_config_types.each do |config_type|
-      values = Array(params[:widget][config_type.label.to_sym])
+      input = params[:widget][config_type.label.to_sym]
+      next if input.empty?
+
+      values = Array(input)
+      configs = WidgetConfig.where(dashboard_widget_config_type_id: config_type.id, widget_id: @widget.id)
+      configs.each do |config|
+        value = values.shift
+        if value.nil?
+          config.delete
+          next
+        end
+        config.value = value
+        config.save
+      end
       values.each do |value|
         WidgetConfig.create(dashboard_widget_config_type_id: config_type.id, widget_id: @widget.id, value: value)
       end

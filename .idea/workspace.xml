@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8b6e0052-668d-4cd2-abeb-1ca630a0bacc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/app/controllers/widget_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/widget_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/widget.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/widget.rb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,20 +54,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/widget_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="36" column="62" lean-forward="true" selection-start-line="36" selection-start-column="62" selection-end-line="36" selection-end-column="62" />
+            <state relative-caret-position="330">
+              <caret line="77" column="23" lean-forward="true" selection-start-line="77" selection-start-column="23" selection-end-line="77" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/widget.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+            <state relative-caret-position="315">
+              <caret line="21" column="28" lean-forward="true" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -187,7 +188,6 @@
         <option value="$PROJECT_DIR$/db/migrate/20210127214619_change_value_column_type_on_widget_config.rb" />
         <option value="$PROJECT_DIR$/app/views/widget/_combo_chart_config.html.erb" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/bd3b410c-1ce6-4dbd-a3bb-32dbf2524f04/console_2.sql" />
-        <option value="$PROJECT_DIR$/app/models/widget.rb" />
         <option value="$PROJECT_DIR$/app/models/team_member.rb" />
         <option value="$PROJECT_DIR$/app/views/application/_team_member_select.html.erb" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/4c5358a3-538d-42f5-8441-e1c289600654/console.sql" />
@@ -195,6 +195,7 @@
         <option value="$PROJECT_DIR$/app/widgets/individual_response_widget.rb" />
         <option value="$PROJECT_DIR$/app/widgets/team_quantitative_chart_widget.rb" />
         <option value="$PROJECT_DIR$/app/controllers/widget_controller.rb" />
+        <option value="$PROJECT_DIR$/app/models/widget.rb" />
       </list>
     </option>
   </component>
@@ -570,15 +571,16 @@
       <workItem from="1611706547919" duration="754000" />
       <workItem from="1611709664379" duration="38834000" />
       <workItem from="1611926349823" duration="486000" />
-      <workItem from="1611938716058" duration="9789000" />
+      <workItem from="1611938716058" duration="11763000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="381571000" />
+    <option name="totallyTimeSpent" value="383545000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1820" y="34" width="1681" height="1027" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21415824" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -913,13 +915,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/widget.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/targets/static_number_target.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="645">
@@ -943,8 +938,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/widget_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="36" column="62" lean-forward="true" selection-start-line="36" selection-start-column="62" selection-end-line="36" selection-end-column="62" />
+        <state relative-caret-position="330">
+          <caret line="77" column="23" lean-forward="true" selection-start-line="77" selection-start-column="23" selection-end-line="77" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/widget.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="28" lean-forward="true" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
         </state>
       </provider>
     </entry>

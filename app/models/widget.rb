@@ -21,6 +21,7 @@ class Widget < ApplicationRecord
     config = get_configs_by_type_name('Series Type')[0]
     return '' if config.nil?
     config_data = JSON.parse config.value
+    return '' if config_data.nil? || config_data[metric].nil?
     config_data[metric][series]
   end
 end
