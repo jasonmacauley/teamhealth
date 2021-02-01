@@ -33,7 +33,9 @@ class WidgetController < ApplicationController
                                    'targets' => []}
       targets = Target.select(:name, :target_type_id).where('target_type_id in (?)', type.target_type_ids).distinct.pluck(:name, :target_type_id)
       type.target_types.each do |target_type|
-        target = targets.select { |t| t[0] =~ /#{type.name}/i }[0]
+        target = targets.select { |t| t[1] == target_type.id }
+        target = target.reject { |t| t[0] !~ /#{type.name}/i }
+        target = target[0]
         @metric_types[type.name]['targets'].push({ 'target' => target[0],
                                                    'series_type' => @widget.get_series_type(type.name, target[0]),
                                                    'targets' => {} })

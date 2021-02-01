@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8b6e0052-668d-4cd2-abeb-1ca630a0bacc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/app/controllers/widget_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/widget_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/widgets/team_quantitative_chart_widget.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/widgets/team_quantitative_chart_widget.rb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +38,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/widgets/team_quantitative_chart_widget.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="735">
+            <state relative-caret-position="335">
               <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
             </state>
           </provider>
@@ -57,8 +56,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/widget_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+            <state relative-caret-position="427">
+              <caret line="36" column="62" lean-forward="true" selection-start-line="36" selection-start-column="62" selection-end-line="36" selection-end-column="62" />
             </state>
           </provider>
         </entry>
@@ -571,16 +570,15 @@
       <workItem from="1611706547919" duration="754000" />
       <workItem from="1611709664379" duration="38834000" />
       <workItem from="1611926349823" duration="486000" />
-      <workItem from="1611938716058" duration="7735000" />
+      <workItem from="1611938716058" duration="9789000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="379517000" />
+    <option name="totallyTimeSpent" value="381571000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1820" y="34" width="1681" height="1027" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21415824" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -938,15 +936,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/widgets/team_quantitative_chart_widget.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
+        <state relative-caret-position="335">
           <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/widget_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="427">
+          <caret line="36" column="62" lean-forward="true" selection-start-line="36" selection-start-column="62" selection-end-line="36" selection-end-column="62" />
         </state>
       </provider>
     </entry>
