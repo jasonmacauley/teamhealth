@@ -10,21 +10,39 @@ class Organization < ApplicationRecord
   has_many :metric_types, through: :organization_metric_types
 
   def all_org_members
-    members = []
-    team_members.each do |member|
-      members.push(member)
-    end
-    organizations.each do |org|
-      puts org.name
-      org.all_org_members.each do |member|
-        next unless members.select { |m| m.id == member.id }.empty?
-
-        members.push(member)
-      end
-    end
-    members
+    subtree = self.class.tree_sql_for(self)
+    TeamMember.where("organization_id IN (#{subtree})")
   end
 
-  private
+  def all_metrics
+    subtree = self.class.tree_sql_for(self)
+    Metric.where("organization_id IN (#{subtree})")
+  end
 
+  def descendants
+    self_and_descendants - [self]
+  end
+
+  def self_and_descendants
+    self.class.tree_for(self)
+  end
+
+  def self.tree_for(instance)
+    where("#{table_name}.id IN (#{tree_sql_for(instance)})").order("#{table_name}.id")
+  end
+
+  def self.tree_sql_for(instance)
+    tree_sql =  <<-SQL
+      WITH RECURSIVE search_tree(id) AS (
+        SELECT id
+        FROM #{table_name}
+        WHERE id = #{instance.id}
+      UNION ALL
+        SELECT #{table_name}.id
+        FROM search_tree
+        JOIN #{table_name} ON #{table_name}.organization_id = search_tree.id
+      )
+      SELECT id FROM search_tree
+    SQL
+  end
 end
