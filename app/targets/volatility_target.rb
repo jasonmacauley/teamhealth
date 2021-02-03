@@ -8,18 +8,18 @@ class VolatilityTarget < BaseTarget
     @target_type = create_target_type
   end
 
-  def generate(organization, metric, period_start, period_end)
+  def generate(organization, metric_type, period_start, period_end)
     target = Target.where(target_type_id: @target_type.id,
-                          name: target_name(metric),
+                          name: target_name(metric_type),
                           organization_id: organization.id,
                           period_start: period_start,
                           period_end: period_end)[0]
     return target unless target.nil?
 
-    target_value = volatility(metric)
+    target_value = volatility(metric_type, organization, period_start)
     target = Target.create(organization_id: organization.id,
                            target_type_id: @target_type.id,
-                           name: target_name(metric),
+                           name: target_name(metric_type),
                            period_start: period_start,
                            period_end: period_end,
                            value: target_value)
@@ -48,18 +48,18 @@ class VolatilityTarget < BaseTarget
     business_days
   end
 
-  def volatility(metric)
-    metrics = Metric.order(period_start: :asc).select(:value)
-                    .where(['metric_type_id = ? AND organization_id = ? AND period_end < ?',
-                            metric.metric_type.id, metric.organization.id, metric.period_start])
-    return 0 if metrics.empty?
-    change = (((metric.value.to_f / metrics.last.value) - 1) * 100).round(1)
-    puts 'VOLATILITY ====> ' + change.to_s
+  def volatility(metric_type, organization, period_start)
+    metrics = Metric.order(period_start: :desc).select(:value)
+                    .where(['metric_type_id = ? AND organization_id = ? AND period_start <= ?',
+                            metric_type.id, organization.id, period_start])
+    return 0 if metrics.count < 2
+
+    change = (((metrics[0].value.to_f / metrics[1].last.value) - 1) * 100).round(1)
     change
   end
 
-  def target_name(metric)
-    metric.metric_type.name + ' Volatility'
+  def target_name(metric_type)
+    metric_type.name + ' Volatility'
   end
 
   def create_target_type

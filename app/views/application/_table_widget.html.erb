@@ -1,29 +1,37 @@
 <% div_id = "table_" + widget.id.to_s %>
 <div id="<%= div_id %>">
   <% data = widget.generate %>
-  <% col_count = data.count + 1 %>
-  <div class="row row-cols-<%= col_count %> align-items-start">
-    <div class="col"></div>
-    <% data.keys.sort.each do |month| %>
-      <div class="col">
-        <%= month %>
-      </div>
-    <% end %>
+  <div class="row">
+    <div class="cols-*">
+      <h3>Quantitative Metrics</h3>
+    </div>
   </div>
-  <% key = data.keys[0] %>
-  <% unless data[key].nil? %>
-    <% data[key].keys.sort { |a,b| a <=> b }.each do |metric| %>
-      <div class="row row-cols-<%= col_count %>">
-        <div class="col">
-          <%= metric %>
-        </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"></th>
         <% data.keys.sort.each do |month| %>
-          <div class="col">
-            <% stat = data[month][metric]['type'].aggregate(data[month][metric]['values']) %>
-            <%= data[month][metric]['type'].aggregation_method =~ /sum/i ? stat.to_s : stat.to_s + '%' %>
-          </div>
+          <th scope="col">
+            <%= month %>
+          </th>
         <% end %>
-      </div>
-    <% end %>
-  <% end %>
+      </tr>
+    </thead>
+    <tbody>
+    <% key = data.keys[0] %>
+    <% data[key].keys.sort { |a,b| a <=> b }.each do |metric| %>
+        <tr>
+          <th scope="row">
+            <%= metric %>
+          </th>
+          <% data.keys.sort.each do |month| %>
+            <td align="center">
+              <% stat = data[month][metric]['value'] %>
+              <%= data[month][metric]['type'].aggregation_method =~ /sum/i ? stat.to_s : stat.to_s + '%' %>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

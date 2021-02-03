@@ -8,10 +8,10 @@ class StaticNumberTarget < BaseTarget
     @target_type = create_target_type
   end
 
-  def generate(organization, metric, period_start, period_end)
+  def generate(organization, metric_type, period_start, period_end)
     target = Target.where(target_type_id: @target_type.id,
                           organization_id: organization.id,
-                          name: target_name(metric),
+                          name: target_name(metric_type),
                           period_start: period_start,
                           period_end: period_end)[0]
     return target unless target.nil?
@@ -22,7 +22,7 @@ class StaticNumberTarget < BaseTarget
     target_value = org_metric.value unless org_metric.nil?
     target = Target.create(organization_id: organization.id,
                            target_type_id: @target_type.id,
-                           name: target_name(metric),
+                           name: target_name(metric_type),
                            period_start: period_start,
                            period_end: period_end,
                            value: target_value)

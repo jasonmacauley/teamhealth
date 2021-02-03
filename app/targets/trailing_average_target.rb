@@ -8,18 +8,18 @@ class TrailingAverageTarget < BaseTarget
     @target_type = create_target_type
   end
 
-  def generate(organization, metric, period_start, period_end)
+  def generate(organization, metric_type, period_start, period_end)
     target = Target.where(target_type_id: @target_type.id,
-                          name: target_name(metric),
+                          name: target_name(metric_type),
                           organization_id: organization.id,
                           period_start: period_start,
                           period_end: period_end)[0]
     return target unless target.nil?
 
-    target_value = trailing_average(metric)
+    target_value = trailing_average(metric_type, organization, period_start)
     target = Target.create(organization_id: organization.id,
                            target_type_id: @target_type.id,
-                           name: target_name(metric),
+                           name: target_name(metric_type),
                            period_start: period_start,
                            period_end: period_end,
                            value: target_value)
@@ -48,22 +48,14 @@ class TrailingAverageTarget < BaseTarget
     business_days
   end
 
-  def trailing_average(metric)
-    metrics = Metric.order(period_start: :asc).select(:value).where(['metric_type_id = ? AND organization_id = ? AND period_end < ?',
-                           metric.metric_type.id, metric.organization.id, metric.period_start])
-    return metric.value * 1.05 if metrics.empty?
-    values = []
-    metrics.each do |m|
-      values.push(m.value)
-    end
-
-    trailing_values = values.pop(3)
-    average = (trailing_values.sum(0.0) / trailing_values.count) * 1.05
-    average
+  def trailing_average(metric_type, organization, period_start)
+    value = Metric.order(period_start: :asc).select(:value).where(['metric_type_id = ? AND organization_id = ? AND period_end < ?',
+                           metric_type.id, organization.id, period_start]).limit(3).average(:value)
+    return value * 1.05
   end
 
-  def target_name(metric)
-    metric.metric_type.name + ' Trailing Average'
+  def target_name(metric_type)
+    metric_type.name + ' Trailing Average'
   end
 
   def create_target_type

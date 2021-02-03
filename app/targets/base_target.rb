@@ -10,7 +10,7 @@ class BaseTarget
     load_targets
   end
 
-  def generate(organization, metric, period_start, period_end)
+  def generate(organization, metric_type, period_start, period_end)
     raise(NotImplementedError)
   end
 
@@ -39,7 +39,7 @@ class BaseTarget
     self.class.descendants.map { |c| c.new }
   end
 
-  def target_name(metric)
-    metric.metric_type.name + ' Target'
+  def target_name(metric_type)
+    metric_type.name + ' Target'
   end
 end

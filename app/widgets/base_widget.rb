@@ -62,18 +62,13 @@ class BaseWidget
     responses = {}
     member_ids = []
     members.map { |member| member_ids.push(member.id) }
-    member_responses = Response.where('question_id IN (?) AND team_member_id IN (?)', questionnaire.question_ids, member_ids)
-    member_responses.each do |response|
-      next unless int?(response.value)
+    filter = question_filter(questionnaire)
+    res = questionnaire.responses.where('responses.team_member_id IN (?)', member_ids).group(:question_id, :period_start).average(:value)
+    res.each do |r, value|
+      next if value.nil? || filter.include?(r[0])
 
-      responses[response.question.id] = {} if responses[response.question.id].nil?
-      responses[response.question.id][response.period_start] = { 'values' => [] } if responses[response.question.id][response.period_start].nil?
-      responses[response.question.id][response.period_start]['values'].push(response.value.to_i)
-    end
-    responses.keys.each do |q|
-      responses[q].keys.each do |p|
-        responses[q][p]['average'] = responses[q][p]['values'].sum(0.0) / responses[q][p]['values'].count
-      end
+      responses[r[0]] = {} if responses[r[0]].nil?
+      responses[r[0]][r[1]] = { 'average' => value }
     end
     responses
   end
@@ -99,9 +94,7 @@ class BaseWidget
   end
 
   def collect_metrics(options, org)
-    results = {}
-    results = drill_down(options, org, results)
-    results
+    collect_metrics_by_org(options['metric_type_ids'], org)
   end
 
   def int?(str)
@@ -121,36 +114,45 @@ class BaseWidget
 
   private
 
-  def drill_down(options, org, results)
-    res = results
-    options['metric_type_ids'].each do |metric_type_id|
-      next unless int?(metric_type_id)
-
-      collect_metrics_by_org(metric_type_id, org, res)
+  def question_filter(questionnaire)
+    q_filter = []
+    resps = questionnaire.responses.group(:question_id, :value).distinct(:value).pluck(:question_id, :value)
+    resps.each do |q, v|
+      q_filter |= [q] unless int? v
     end
-    org.organizations.each do |o|
-      res = drill_down(options, o, res)
-    end
-    res
+    q_filter
   end
 
-  def collect_metrics_by_org(metric_type_id, org, results)
-    res = results
-    Metric.where(organization_id: org.id, metric_type_id: metric_type_id).each do |metric|
-      metric_type = metric.metric_type
-      next if metric_type.nil?
-      month = metric.period_start
-      res[month] = {} if res[month].nil?
-      res[month][metric_type.name] = { 'values' => [], 'type' => metric_type } if res[month][metric_type.name].nil?
-      res[month][metric_type.name]['values'].push(metric.value)
-      metric_type.target_types.each do |target_type|
-        target = target_type.generate(org,
-                                      metric,
-                                      metric.period_start,
-                                      metric.period_end)
+  def collect_metrics_by_org(metric_type_ids, org)
+    types = []
+    metric_type_ids.map { |id| types.push(MetricType.find(id)) if int? id }
+    results = org.org_metrics
+    res = {}
+    results.each do |metrics|
+      metrics.each do |metric, value|
+        puts 'METRIC ' + metric.to_s
+        metric_type = MetricType.find(metric[0])
+        next if metric_type.nil?
+        month = metric[1]
+        res[month] = {} if res[month].nil?
+        res[month][metric_type.name] = { 'value' => value, 'type' => metric_type } if res[month][metric_type.name].nil?
+        metric_type.target_types.each do |target_type|
+          target = target_type.generate(org,
+                                        metric_type,
+                                        month,
+                                        metric[2])
 
-        res[month][target.name] = { 'values' => [], 'type' => target_type } if res[month][target.name].nil?
-        res[month][target.name]['values'].push(target.value)
+          res[month][target.name] = { 'values' => [], 'type' => target_type } if res[month][target.name].nil?
+          res[month][target.name]['values'].push(target.value)
+        end
+        res.each do |month, target|
+          target.each do |metric, value|
+            next if value['values'].nil?
+
+            puts 'TARGET ' + value.to_s
+            value['value'] = value['type'].aggregate(value['values'])
+          end
+        end
       end
     end
     res

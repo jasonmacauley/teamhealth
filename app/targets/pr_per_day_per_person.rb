@@ -8,9 +8,9 @@ class PrPerDayPerPerson < BaseTarget
     @target_type = create_target_type
   end
 
-  def generate(organization, metric, period_start, period_end)
+  def generate(organization, metric_type, period_start, period_end)
     target = Target.where(target_type_id: @target_type.id,
-                          name: target_name(metric),
+                          name: target_name(metric_type),
                           organization_id: organization.id,
                           period_start: period_start,
                           period_end: period_end)[0]
@@ -19,7 +19,7 @@ class PrPerDayPerPerson < BaseTarget
     target_value = organization.all_org_members.count * business_days_between(period_start, period_end)
     target = Target.create(organization_id: organization.id,
                            target_type_id: @target_type.id,
-                           name: target_name(metric),
+                           name: target_name(metric_type),
                            period_start: period_start,
                            period_end: period_end,
                            value: target_value)
@@ -48,8 +48,8 @@ class PrPerDayPerPerson < BaseTarget
     business_days
   end
 
-  def target_name(metric)
-    metric.metric_type.name + ' By Capacity Target'
+  def target_name(metric_type)
+    metric_type.name + ' By Capacity Target'
   end
 
   def create_target_type

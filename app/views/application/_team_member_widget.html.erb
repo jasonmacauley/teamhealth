@@ -15,7 +15,7 @@
             <ul>
               <% data[team].each do |member| %>
               <li>
-                <%= member.first_name + ' ' + member.last_name + ' - ' + member.title.name + ' ' + member.location.name %>
+                <%= member.name + ' - ' + member.title.name + ' ' + member.location.name %>
               </li>
               <% end %>
             </ul>
