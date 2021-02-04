@@ -49,13 +49,20 @@ class VolatilityTarget < BaseTarget
   end
 
   def volatility(metric_type, organization, period_start)
-    metrics = Metric.order(period_start: :desc).select(:value)
-                    .where(['metric_type_id = ? AND organization_id = ? AND period_start <= ?',
-                            metric_type.id, organization.id, period_start])
-    return 0 if metrics.count < 2
+    metrics = organization.org_metrics_by_type(metric_type)
+    data = {}
+    metrics.each do |key, value|
+      next unless key[1] <= period_start
 
-    change = (((metrics[0].value.to_f / metrics[1].last.value) - 1) * 100).round(1)
-    change
+      data[key[1]] = value
+    end
+    stats = data.keys.sort.last(2)
+    values = []
+    stats.map { |key| values.push(data[key]) }
+    return 0 if values.count < 2
+
+    dif = ((values[1].to_f - values[0]) / values[1]) * 100
+    dif
   end
 
   def target_name(metric_type)
