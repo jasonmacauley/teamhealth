@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8b6e0052-668d-4cd2-abeb-1ca630a0bacc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/targets/volatility_target.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/targets/volatility_target.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/application/_table_widget.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/application/_table_widget.html.erb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,20 +63,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/targets/volatility_target.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="63" column="26" selection-start-line="63" selection-start-column="26" selection-end-line="63" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/widgets/puts.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="378">
+              <caret line="64" selection-start-line="64" selection-end-line="64" />
             </state>
           </provider>
         </entry>
@@ -117,11 +108,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/application/_table_widget.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+            <state relative-caret-position="111">
+              <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -190,12 +181,12 @@
         <option value="$PROJECT_DIR$/app/models/organization.rb" />
         <option value="$PROJECT_DIR$/app/targets/base_target.rb" />
         <option value="$PROJECT_DIR$/app/targets/pr_per_day_per_person.rb" />
-        <option value="$PROJECT_DIR$/app/views/application/_table_widget.html.erb" />
         <option value="$PROJECT_DIR$/app/widgets/team_quantitative_chart_widget.rb" />
         <option value="$PROJECT_DIR$/app/targets/trailing_average_target.rb" />
         <option value="$PROJECT_DIR$/app/targets/static_number_target.rb" />
         <option value="$PROJECT_DIR$/app/widgets/base_widget.rb" />
         <option value="$PROJECT_DIR$/app/targets/volatility_target.rb" />
+        <option value="$PROJECT_DIR$/app/views/application/_table_widget.html.erb" />
       </list>
     </option>
   </component>
@@ -577,15 +568,16 @@
       <workItem from="1611709664379" duration="38834000" />
       <workItem from="1611926349823" duration="486000" />
       <workItem from="1611938716058" duration="37750000" />
-      <workItem from="1612449915962" duration="2526000" />
+      <workItem from="1612449915962" duration="3244000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="412058000" />
+    <option name="totallyTimeSpent" value="412776000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1818" y="42" width="1681" height="1027" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21415824" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -928,13 +920,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/application/_table_widget.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/log/development.log">
       <provider selected="true" editor-type-id="LogFileEditorProvider">
         <state relative-caret-position="-7131" />
@@ -957,8 +942,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/targets/volatility_target.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="63" column="26" selection-start-line="63" selection-start-column="26" selection-end-line="63" selection-end-column="26" />
+        <state relative-caret-position="378">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/application/_table_widget.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
         </state>
       </provider>
     </entry>

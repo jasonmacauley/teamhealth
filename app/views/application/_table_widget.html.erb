@@ -19,18 +19,20 @@
     </thead>
     <tbody>
     <% key = data.keys[0] %>
-    <% data[key].keys.sort { |a,b| a <=> b }.each do |metric| %>
-        <tr>
-          <th scope="row">
-            <%= metric %>
-          </th>
-          <% data.keys.sort.each do |month| %>
-            <td align="center">
-              <% stat = data[month][metric]['value'] %>
-              <%= data[month][metric]['type'].aggregation_method =~ /sum/i ? stat.to_s : stat.to_s + '%' %>
-            </td>
-          <% end %>
-        </tr>
+    <% unless data[key].nil? %>
+      <% data[key].keys.sort { |a,b| a <=> b }.each do |metric| %>
+          <tr>
+            <th scope="row">
+              <%= metric %>
+            </th>
+            <% data.keys.sort.each do |month| %>
+              <td align="center">
+                <% stat = data[month][metric]['value'] %>
+                <%= data[month][metric]['type'].aggregation_method =~ /sum/i ? stat.to_s : stat.to_s + '%' %>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
       <% end %>
     </tbody>
   </table>
