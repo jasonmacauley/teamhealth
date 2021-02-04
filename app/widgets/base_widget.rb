@@ -84,8 +84,7 @@ class BaseWidget
     results.keys.sort.each do |month|
       row = [month]
       results[month].keys.sort.each do |metric|
-        stat = aggregate_metric(metric, month, results)
-        row.push(stat)
+        row.push(results[month][metric]['value'])
       end
       rows.push(row)
     end
@@ -124,13 +123,12 @@ class BaseWidget
   end
 
   def collect_metrics_by_org(metric_type_ids, org)
-    types = []
-    metric_type_ids.map { |id| types.push(MetricType.find(id)) if int? id }
+    metric_type_ids.map! { |id| id.to_i if int? id }
     results = org.org_metrics
     res = {}
     results.each do |metrics|
       metrics.each do |metric, value|
-        puts 'METRIC ' + metric.to_s
+        next unless metric_type_ids.include?(metric[0])
         metric_type = MetricType.find(metric[0])
         next if metric_type.nil?
         month = metric[1]
@@ -149,7 +147,6 @@ class BaseWidget
           target.each do |metric, value|
             next if value['values'].nil?
 
-            puts 'TARGET ' + value.to_s
             value['value'] = value['type'].aggregate(value['values'])
           end
         end

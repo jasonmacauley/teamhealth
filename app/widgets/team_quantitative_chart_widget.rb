@@ -25,8 +25,6 @@ class TeamQuantitativeChartWidget < BaseWidget
     CHART_TYPES[options['chart_type'][0]].new(data_table, option)
   end
 
-  private
-
   def combo_chart_options(data_table, option, options)
     option[:seriesType] = 'bars'
     option[:series] = {}

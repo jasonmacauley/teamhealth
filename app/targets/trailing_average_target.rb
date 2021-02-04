@@ -49,9 +49,18 @@ class TrailingAverageTarget < BaseTarget
   end
 
   def trailing_average(metric_type, organization, period_start)
-    value = Metric.order(period_start: :asc).select(:value).where(['metric_type_id = ? AND organization_id = ? AND period_end < ?',
-                           metric_type.id, organization.id, period_start]).limit(3).average(:value)
-    return value * 1.05
+    metrics = organization.org_metrics_by_type(metric_type)
+    data = {}
+    metrics.each do |key, value|
+      next unless key[1] < period_start
+
+      data[key[1]] = value
+    end
+    stats = data.keys.sort.last(3)
+    values = []
+    stats.map { |key| values.push(data[key]) }
+    value = (values.sum(0.0) / values.count) * 1.05
+    value
   end
 
   def target_name(metric_type)

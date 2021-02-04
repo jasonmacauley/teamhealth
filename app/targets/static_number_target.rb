@@ -17,7 +17,7 @@ class StaticNumberTarget < BaseTarget
     return target unless target.nil?
 
     target_value = 100
-    org_metric = OrganizationMetricType.where(metric_type_id: metric.metric_type.id,
+    org_metric = OrganizationMetricType.where(metric_type_id: metric_type.id,
                                               organization_id: organization.id)[0]
     target_value = org_metric.value unless org_metric.nil?
     target = Target.create(organization_id: organization.id,

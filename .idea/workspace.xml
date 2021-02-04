@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b6e0052-668d-4cd2-abeb-1ca630a0bacc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/models/organization.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/organization.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/targets/base_target.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/targets/base_target.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/targets/pr_per_day_per_person.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/targets/pr_per_day_per_person.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/targets/static_number_target.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/targets/static_number_target.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/targets/trailing_average_target.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/targets/trailing_average_target.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/targets/volatility_target.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/targets/volatility_target.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/application/_qualitative_table_widget.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/application/_qualitative_table_widget.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/application/_table_widget.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/application/_table_widget.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/application/_team_member_widget.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/application/_team_member_widget.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/widgets/base_widget.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/widgets/base_widget.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/widgets/team_quantitative_chart_widget.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/widgets/team_quantitative_chart_widget.rb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,8 +50,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/widgets/base_widget.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="466">
-              <caret line="150" column="12" selection-start-line="150" selection-start-column="12" selection-end-line="150" selection-end-column="12" />
+            <state relative-caret-position="298">
+              <caret line="125" selection-start-line="125" selection-end-line="125" />
             </state>
           </provider>
         </entry>
@@ -74,8 +68,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/targets/trailing_average_target.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="689">
-              <caret line="57" column="4" lean-forward="true" selection-start-line="57" selection-start-column="4" selection-end-line="57" selection-end-column="4" />
+            <state relative-caret-position="420">
+              <caret line="62" column="4" selection-start-line="62" selection-start-column="4" selection-end-line="62" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -108,10 +102,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/widgets/team_quantitative_chart_widget.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/targets/static_number_target.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="56" selection-start-line="24" selection-start-column="56" selection-end-line="24" selection-end-column="56" />
+            <state relative-caret-position="285">
+              <caret line="19" column="62" selection-start-line="19" selection-start-column="62" selection-end-line="19" selection-end-column="62" />
             </state>
           </provider>
         </entry>
@@ -121,15 +124,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
               <caret line="19" column="11" lean-forward="true" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/application/_team_member_widget.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="27" lean-forward="true" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -190,7 +184,6 @@
         <option value="$PROJECT_DIR$/app/models/team_member.rb" />
         <option value="$PROJECT_DIR$/app/views/application/_team_member_select.html.erb" />
         <option value="$PROJECT_DIR$/app/widgets/individual_response_widget.rb" />
-        <option value="$PROJECT_DIR$/app/widgets/team_quantitative_chart_widget.rb" />
         <option value="$PROJECT_DIR$/app/models/widget.rb" />
         <option value="$PROJECT_DIR$/app/controllers/widget_controller.rb" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/4c5358a3-538d-42f5-8441-e1c289600654/console.sql" />
@@ -198,18 +191,19 @@
         <option value="$PROJECT_DIR$/app/views/application/_qualitative_table_widget.html.erb" />
         <option value="$PROJECT_DIR$/app/models/organization.rb" />
         <option value="$PROJECT_DIR$/app/targets/base_target.rb" />
-        <option value="$PROJECT_DIR$/app/targets/static_number_target.rb" />
         <option value="$PROJECT_DIR$/app/targets/pr_per_day_per_person.rb" />
-        <option value="$PROJECT_DIR$/app/targets/trailing_average_target.rb" />
         <option value="$PROJECT_DIR$/app/targets/volatility_target.rb" />
         <option value="$PROJECT_DIR$/app/views/application/_table_widget.html.erb" />
+        <option value="$PROJECT_DIR$/app/widgets/team_quantitative_chart_widget.rb" />
+        <option value="$PROJECT_DIR$/app/targets/trailing_average_target.rb" />
+        <option value="$PROJECT_DIR$/app/targets/static_number_target.rb" />
         <option value="$PROJECT_DIR$/app/widgets/base_widget.rb" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1820" />
-    <option name="y" value="34" />
+    <option name="x" value="1818" />
+    <option name="y" value="42" />
     <option name="width" value="1681" />
     <option name="height" value="1027" />
   </component>
@@ -579,16 +573,15 @@
       <workItem from="1611706547919" duration="754000" />
       <workItem from="1611709664379" duration="38834000" />
       <workItem from="1611926349823" duration="486000" />
-      <workItem from="1611938716058" duration="33170000" />
+      <workItem from="1611938716058" duration="37251000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="404952000" />
+    <option name="totallyTimeSpent" value="409033000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1820" y="34" width="1681" height="1027" extended-state="0" />
-    <editor active="true" />
+    <frame x="1818" y="42" width="1681" height="1027" extended-state="0" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21415824" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -879,13 +872,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/widgets/team_quantitative_chart_widget.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/widgets/team_member_widget.rb">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -903,20 +889,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/organization.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="39" column="86" selection-start-line="39" selection-start-column="86" selection-end-line="39" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/targets/static_number_target.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="56" selection-start-line="24" selection-start-column="56" selection-end-line="24" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/targets/pr_per_day_per_person.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -924,24 +896,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/targets/trailing_average_target.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="689">
-          <caret line="57" column="4" lean-forward="true" selection-start-line="57" selection-start-column="4" selection-end-line="57" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/targets/volatility_target.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
           <caret line="45" column="25" lean-forward="true" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/metric_type.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
@@ -959,10 +917,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/metric_type.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/widgets/team_quantitative_chart_widget.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/organization.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="39" column="86" selection-start-line="39" selection-start-column="86" selection-end-line="39" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/targets/trailing_average_target.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="62" column="4" selection-start-line="62" selection-start-column="4" selection-end-line="62" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/targets/static_number_target.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="62" selection-start-line="19" selection-start-column="62" selection-end-line="19" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/widgets/base_widget.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="150" column="12" selection-start-line="150" selection-start-column="12" selection-end-line="150" selection-end-column="12" />
+        <state relative-caret-position="298">
+          <caret line="125" selection-start-line="125" selection-end-line="125" />
         </state>
       </provider>
     </entry>
